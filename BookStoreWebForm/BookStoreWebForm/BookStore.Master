@@ -9,6 +9,18 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
 
         <link  type="text/css" rel="stylesheet" href="../CSS/BookStore.css" />
+        <style>
+            #footer {
+    position: fixed;
+    padding: 10px 10px 0px 10px;
+    bottom: 0;
+    width: 100%;
+    text-decoration-color:white;
+    /* Height of the footer*/
+    height: 40px;
+    background: black;
+}
+        </style>
 
       
     </asp:ContentPlaceHolder>
@@ -45,9 +57,11 @@
 </nav>
 
 
-
+           
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
+
+             <div id="footer"> Copyright@2020, Bookstore Private Limited. All Rights Reserved </div>
         </div>
     </form>
 </body>
