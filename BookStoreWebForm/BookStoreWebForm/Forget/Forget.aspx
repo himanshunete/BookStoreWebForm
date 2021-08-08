@@ -19,7 +19,16 @@
                     </tr>
                           <tr>
                     <td>  
-                        <asp:TextBox ID="EmailAddress" CssClass="inputbox" runat="server" TextMode="Password"></asp:TextBox>  
+                        <asp:TextBox ID="EmailAddress" CssClass="inputbox" runat="server" ></asp:TextBox>  
+                               <asp:RequiredFieldValidator ID="RequiredFieldEmailAddress" ControlToValidate="EmailAddress" runat="server" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+    
+                               </td>
+                     
+                          
+                              <tr>
+                    <td>  
+<asp:RegularExpressionValidator ID="RegularExpressionEmailAddress" ControlToValidate="EmailAddress" runat="server" ErrorMessage="Enter Correct Email" ValidationExpression="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"></asp:RegularExpressionValidator>
+
                     </td>  
                 </tr>  
                

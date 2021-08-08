@@ -24,6 +24,24 @@ namespace BookStoreWebForm.Forget
         protected global::System.Web.UI.WebControls.TextBox EmailAddress;
 
         /// <summary>
+        /// RequiredFieldEmailAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldEmailAddress;
+
+        /// <summary>
+        /// RegularExpressionEmailAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionEmailAddress;
+
+        /// <summary>
         /// SubmitButton control.
         /// </summary>
         /// <remarks>
