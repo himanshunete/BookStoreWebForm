@@ -16,6 +16,18 @@
                           <tr>
                     <td>  
                         <asp:TextBox ID="NewPassword" CssClass="inputbox" runat="server" TextMode="Password"></asp:TextBox>  
+
+                        
+                             <asp:RequiredFieldValidator ID="RequiredFieldPassword" ControlToValidate="NewPassword" runat="server" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+    
+                        
+                               </td>
+                    </tr>  
+                              <tr>
+                          
+                    <td>  
+
+<asp:RegularExpressionValidator ID="RegularExpressionPassword" ControlToValidate="NewPassword" runat="server" ErrorMessage="Enter Correct Password" ValidationExpression="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$"></asp:RegularExpressionValidator>
                     </td>  
                 </tr>  
                
@@ -25,9 +37,30 @@
                     </tr>
                           <tr>
                     <td>  
-                        <asp:TextBox ID="ConfirmPassword" CssClass="inputbox" runat="server"></asp:TextBox>  
+                        <asp:TextBox ID="ConfirmPassword" CssClass="inputbox" runat="server" TextMode="Password"></asp:TextBox>  
+
+                        
+                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="ConfirmPassword" runat="server" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+    
+                        
+                               </td>
+                    </tr>  
+                              <tr>
+                          
+                    <td>  
+
+<asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="ConfirmPassword" runat="server" ></asp:RegularExpressionValidator>
                     </td>  
                 </tr>  
+
+                          
+                          <tr>
+                              <td>
+                                  <asp:CompareValidator ID="CompareValidator1" runat="server" 
+        ControlToCompare="NewPassword" ControlToValidate="ConfirmPassword" ErrorMessage="Password mismatch">
+    </asp:CompareValidator>
+                              </td>
+                          </tr>
 
                           <tr>
                               <td class="reset-row">
