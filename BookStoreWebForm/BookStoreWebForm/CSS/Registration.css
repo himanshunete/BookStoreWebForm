@@ -1,0 +1,138 @@
+﻿.box {
+    width: 500px;
+    height: 500px;
+    border: 1px solid black;
+    margin-left:500px;
+    margin-top:80px;
+}
+
+.content-centre {
+    margin-left:30px;
+    margin-top:40px;
+}
+
+.inputbox {
+    width:300px;
+    height:30px;
+    border:1px solid black;
+}
+
+.title {
+   
+    background-color:brown;
+    padding-left:185px;
+    padding-top:5px;
+    font-size:30px;
+    font-family:Arial;
+    color:white;
+    height:55px;
+    
+}
+
+.bookstore-title {
+    margin-left:10px;
+    margin-top:20px;
+    font-size: 20px;
+    font-family: Arial;
+    color: white;
+    height: 55px;
+}
+
+.bookstore-image {
+    margin-left: 210px;
+    margin-top: 5px;
+    width: 35px;
+    height: 30px;
+}
+
+.navigation {
+    display:flex;
+    flex-direction:row;
+    justify-content:space-evenly;
+    padding-left:50px;
+}
+
+.nav-link {
+    font-family:Arial;
+    color:white;
+}
+.search {
+    margin-left:200px;
+    margin-bottom:8px;
+}
+/*
+.search-icon-button {
+    background: url(search-icon.png) no-repeat;
+    background-image:
+    width:20px;
+    height:20px;
+    background-color:white;
+    padding-left: 18px;
+    border: 1px solid #ccc;
+
+}
+*/
+.nice-input {
+    padding-left:25px;
+    width: 380px;
+    height: 25px;
+}
+
+.nice-button {
+    position: relative;
+    width:15px;
+    height:15px;
+    top: 3px;
+    left: 21px;
+}
+
+.cartimage {
+    width: 21px;
+    height: 21px;
+    margin-top:5px;
+}
+
+.wishlistimage {
+    position:relative;
+    width: 21px;
+    height: 21px;
+    top: 3px;
+    left:25px;
+}
+
+.cartandwishlist {
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+    margin-left:150px;
+
+}
+
+.navbar-custom {
+    background-color: lightgreen;
+}
+
+.footer {
+    padding-left: 200px;
+    padding-top:5px;
+    margin-top:90px;
+    font-size: 15px;
+    color:white;
+    /* Height of the footer*/
+    height: 40px;
+    background-color: black;
+}
+
+.last-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+   
+}
+
+
+.login-button {
+    margin-left: 170px;
+    font-family: Arial;
+    color: blue;
+}

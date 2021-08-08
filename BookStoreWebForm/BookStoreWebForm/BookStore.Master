@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="BookStore.master.cs" Inherits="BookStoreWebForm.BookStoreMaster.BookStore" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="BookStore.Master.cs" Inherits="BookStoreWebForm.BookStoreMaster.BookStore" %>
 
 <!DOCTYPE html>
 
@@ -6,63 +6,76 @@
 <head runat="server">
     <title></title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" >
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <asp:ContentPlaceHolder ID="head" runat="server">
-
+         <link  type="text/css" rel="stylesheet" href="../CSS/Registration.css" />
         <link  type="text/css" rel="stylesheet" href="../CSS/BookStore.css" />
-        <style>
-            #footer {
-    position: fixed;
-    padding: 10px 10px 0px 10px;
-    bottom: 0;
-    width: 100%;
-    text-decoration-color:white;
-    /* Height of the footer*/
-    height: 40px;
-    background: black;
-}
-        </style>
-
-      
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-          <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
-  <div class="container-fluid">
-    <a class="navbar-brand " >Bookstore</a>
-<div class="container">
-    <div class="row height d-flex justify-content-center align-items-center">
-        <div class="col-md-6">
-            <div class="form"> <i class="fa fa-search"></i> <input type="text" class="form-control form-input" placeholder="Search anything..."> <span class="left-pan"><i class="fa fa-microphone"></i></span> </div>
-        </div>
-    </div>
+        
+        
+            <nav class="navbar  navbar-expand-lg " style="background-color:brown; height:47px">
+                <asp:Image ID="Image1" ImageUrl="~/img/Bookstore.png" CssClass="bookstore-image" runat="server" />
+                <asp:Label ID="BookstoreTitle" CssClass="bookstore-title" runat="server" Text="Bookstore"></asp:Label>
+
+<%--                <asp:ImageButton ID="SearchIcon" runat="server" />
+
+                <asp:TextBox ID="Search" CssClass="search" runat="server" Text="search..."></asp:TextBox>--%>
+
+                <div class="search">
+    <asp:ImageButton ID="ClickMeButton" runat="server" ImageUrl="~/img/search-icon.png" CssClass="nice-button" />
+    <asp:TextBox ID="txtDescription" runat="server" CssClass="nice-input" Text="search..." ></asp:TextBox>
 </div>
 
-      
-       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
+                <div class="cartandwishlist">
+                    <div>
+                  
+                    <asp:LinkButton ID="Cart" runat="server">
+                        <asp:ImageButton ID="CartImage" ImageUrl="~/img/snapcart.png" CssClass="cartimage" runat="server" />
+                    </asp:LinkButton>
+                        </div>
+                    <div>
+              
+                      <asp:LinkButton ID="WishList" runat="server" CssClass="wishlistimage">
+                        <i class="fa fa-heart-o" style="color:white" ></i>
+                    </asp:LinkButton>
+                    </div>
+                    </div>
+               
+
+                     <div class="navigation">
+                  
+                       
+
+             
+                            <asp:LinkButton class="nav-link"  ID="LinkButton1" runat="server">User Login</asp:LinkButton>
+                        
+                 
+                            <asp:LinkButton class="nav-link"  ID="LinkButton2" runat="server">Sign Up</asp:LinkButton>
+            
+                            <asp:LinkButton class="nav-link" ID="LinkButton3" runat="server">Logout</asp:LinkButton>
+                        
+
+                       
+  
+                         </div>
+                
+
+
+            </nav>
         
-       
-      </ul>
-      
-    </div>
-  </div>
-</nav>
+
+
 
 
            
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
 
-             <div id="footer"> Copyright@2020, Bookstore Private Limited. All Rights Reserved </div>
-        </div>
+             <div class="footer"> Copyright@2020, Bookstore Private Limited. All Rights Reserved </div>
+        
     </form>
 </body>
 </html>

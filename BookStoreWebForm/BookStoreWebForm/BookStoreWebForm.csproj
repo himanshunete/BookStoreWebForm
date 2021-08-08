@@ -113,6 +113,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="CSS\BookStore.css" />
+    <Content Include="CSS\Registration.css" />
+    <Content Include="CSS\search-icon.png" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -127,6 +129,23 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="BookStore.Master" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="img\Bookstore.PNG" />
+    <Content Include="img\cart.png" />
+    <Content Include="img\heart.png" />
+    <Content Include="img\heart2.png" />
+    <Content Include="img\heart4.png" />
+    <Content Include="img\heart5.PNG" />
+    <Content Include="img\heart6.PNG" />
+    <Content Include="img\heart7.png" />
+    <Content Include="img\heart8.PNG" />
+    <Content Include="img\search-icon.png" />
+    <Content Include="img\snapcart.PNG" />
+    <Content Include="img\snapwishlist.png" />
+    <Content Include="img\whitecart.png" />
+    <Content Include="img\whitewishlisticon.png" />
+    <Content Include="img\wish.png" />
+    <Content Include="img\wish1.png" />
+    <Content Include="img\wishlist.png" />
     <Content Include="Registration\Registration.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -228,6 +247,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
