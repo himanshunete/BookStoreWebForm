@@ -13,5 +13,22 @@ namespace BookStoreWebForm.Registration
         {
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            if ( Password.Text == ConfirmPassword.Text)
+            {
+                
+            }
+            else
+            {
+              
+            }
+        }
+
+        protected void Show1_CheckedChanged(object sender, EventArgs e)
+        {
+           
+        }
     }
 }

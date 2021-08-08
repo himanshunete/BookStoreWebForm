@@ -17,22 +17,46 @@
                     </tr>
                           <tr>
                     <td>  
-                        <asp:TextBox ID="FirstName" CssClass="inputbox" runat="server"></asp:TextBox>  
-                    </td>  
+                        <asp:TextBox ID="FirstName" CssClass="inputbox" runat="server"></asp:TextBox> 
+                      
+                         <asp:RequiredFieldValidator ID="RequiredFieldFirstName" ControlToValidate="FirstName" runat="server" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+    </td>
+                    </tr>  
+                          <tr>
+                    <td>  
+<asp:RegularExpressionValidator ID="RegularExpressionFirstName" ControlToValidate="FirstName" runat="server" ErrorMessage="Enter Correct First Name" ValidationExpression="^[A-Z][a-z]{3,}$"></asp:RegularExpressionValidator>
+                        </td>
+                    </tr>  
   
-               </tr>  
+               
                 <tr>  
                     <td>LastName:</td>  
                     </tr>
                           <tr>
-                     <td> <asp:TextBox ID="LastName" CssClass="inputbox" runat="server"></asp:TextBox></td>  
+                     <td> <asp:TextBox ID="LastName" CssClass="inputbox" runat="server"></asp:TextBox>
+                                   <asp:RequiredFieldValidator ID="RequiredFieldLastName" ControlToValidate="LastName" runat="server" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+    
+                               </td>
+                    </tr>  
+                          <tr>
+                    <td>  
+<asp:RegularExpressionValidator ID="RegularExpressionLastName" ControlToValidate="LastName" runat="server" ErrorMessage="Enter Correct Last Name" ValidationExpression="^[A-Z][a-z]{3,}$"></asp:RegularExpressionValidator>
+                        </td>
                 </tr>  
                 <tr>  
                     <td>Email Address:</td>  
                     </tr>
                           <tr>
                     <td>  
-                        <asp:TextBox ID="EmailAddress" CssClass="inputbox" runat="server" TextMode="Password"></asp:TextBox>  
+                        <asp:TextBox ID="EmailAddress" CssClass="inputbox" runat="server" ></asp:TextBox> 
+                             <asp:RequiredFieldValidator ID="RequiredFieldEmailAddress" ControlToValidate="EmailAddress" runat="server" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+    
+                               </td>
+                     
+                          
+                              <tr>
+                    <td>  
+<asp:RegularExpressionValidator ID="RegularExpressionEmailAddress" ControlToValidate="EmailAddress" runat="server" ErrorMessage="Enter Correct Email" ValidationExpression="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"></asp:RegularExpressionValidator>
                     </td>  
                 </tr>  
                
@@ -42,21 +66,51 @@
                     </tr>
                           <tr>
                     <td>  
-                        <asp:TextBox ID="Password" CssClass="inputbox" runat="server"></asp:TextBox>  
+                      
+                          <asp:TextBox ID="Password" CssClass="inputbox" runat="server" TextMode="Password" ></asp:TextBox> 
+                      
+                             <asp:RequiredFieldValidator ID="RequiredFieldPassword" ControlToValidate="Password" runat="server" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+    
+                        
+                               </td>
+                    </tr>  
+                              <tr>
+                          
+                    <td>  
+
+<asp:RegularExpressionValidator ID="RegularExpressionPassword" ControlToValidate="Password" runat="server" ErrorMessage="Enter Correct Password" ValidationExpression="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$"></asp:RegularExpressionValidator>
                     </td>  
                 </tr>  
-
+                       
                             <tr>  
                     <td>Confirm Password:</td> 
                                 </tr>
                           <tr>
                     <td>  
-                        <asp:TextBox ID="ConfirmPassword" CssClass="inputbox" runat="server"></asp:TextBox>  
+                        <asp:TextBox ID="ConfirmPassword" CssClass="inputbox" runat="server" TextMode="Password"></asp:TextBox> 
+                      
+                          <asp:RequiredFieldValidator ID="RequiredFieldConfirmPassword" ControlToValidate="ConfirmPassword" runat="server" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+    
+                        
+                               </td>
+                      
+                          <tr>
+                    <td>  
+
+<asp:RegularExpressionValidator ID="RegularExpressionConfirmPassword" ControlToValidate="ConfirmPassword" runat="server"  ></asp:RegularExpressionValidator>
+                        
                     </td>  
                 </tr>  
+                          <tr>
+                              <td>
+                                  <asp:CompareValidator ID="CompareValidator1" runat="server" 
+        ControlToCompare="Password" ControlToValidate="ConfirmPassword" ErrorMessage="Password mismatch">
+    </asp:CompareValidator>
+                              </td>
+                          </tr>
                 <tr>  
-                    <td class="last-row">  
-                        <asp:Button ID="Button1" runat="server" Text="Create Account" />
+                    <td class="register-last-row">  
+                        <asp:Button ID="Button1" runat="server" Text="Create Account" OnClick="Button1_Click" />
                         <asp:LinkButton ID="Login" CssClass="login-button" runat="server">Login</asp:LinkButton>
                     </td>  
                 </tr>  

@@ -1,6 +1,6 @@
 ﻿.boxRegister {
     width: 500px;
-    height: 500px;
+    height: 600px;
     border: 1px solid black;
     margin-left:500px;
     margin-top:80px;
@@ -145,6 +145,13 @@
     justify-content: space-between;
     margin-top:30px;
    
+}
+
+.register-last-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
 }
 
 
