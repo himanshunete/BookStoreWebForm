@@ -14,6 +14,14 @@
     margin-top: 80px;
 }
 
+.boxForget {
+    width: 1000px;
+    height: 300px;
+    border: 1px solid black;
+    margin-left: 200px;
+    margin-top: 80px;
+}
+
 .content-centre {
     margin-left:30px;
     margin-top:40px;
@@ -123,7 +131,7 @@
 .footer {
     padding-left: 200px;
     padding-top:5px;
-    margin-top:190px;
+    margin-top:290px;
     font-size: 15px;
     color:white;
     /* Height of the footer*/
@@ -158,4 +166,14 @@
     font-family: Arial;
     font-size: 15px;
     color: blue;
+}
+
+.forget-title {
+    background-color: brown;
+    padding-left: 350px;
+    padding-top: 5px;
+    font-size: 30px;
+    font-family: Arial;
+    color: white;
+    height: 55px;
 }
