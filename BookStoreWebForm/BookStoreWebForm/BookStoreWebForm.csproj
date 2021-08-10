@@ -275,6 +275,9 @@
     <Compile Include="ResetPassword\ResetPassword.aspx.designer.cs">
       <DependentUpon>ResetPassword.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Service\CustomerService.cs" />
+    <Compile Include="Service\Encryption.cs" />
+    <Compile Include="Service\SMTP.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
