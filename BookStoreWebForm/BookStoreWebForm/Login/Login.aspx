@@ -8,6 +8,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
            <div class="boxLogin">  
 
+                <asp:Label ID="LoginMessage" CssClass="alert" runat="server" Text="Hello" Visible="false"></asp:Label>
+
+
                   <div class="title"> Login </div>
 
                       <table class="content-centre" >
@@ -59,8 +62,8 @@
 
                 <tr>  
                     <td class="last-row">  
-                        <asp:Button ID="LoginButton" runat="server" Text="Login" />
-                        <asp:LinkButton ID="CreateButton" CssClass="register-button" runat="server">Create Account</asp:LinkButton>
+                        <asp:Button ID="LoginButton" runat="server" Text="Login" OnClick="LoginButton_Click" />
+                        <asp:LinkButton ID="CreateButton" CssClass="register-button" runat="server" OnClick="CreateButton_Click">Create Account</asp:LinkButton>
                     </td>  
                 </tr>  
             </table> 

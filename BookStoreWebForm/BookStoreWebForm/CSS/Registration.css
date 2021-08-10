@@ -198,3 +198,15 @@
 .reset-row {
     margin-top:60px;
 }
+
+.navigation {
+    background-color: brown;
+    height: 47px;
+}
+
+.alert {
+    top: 60px;
+    left: 650px;
+    background-color: #e8b679;
+    color: white;
+}

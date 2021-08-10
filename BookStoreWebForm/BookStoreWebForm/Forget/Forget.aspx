@@ -19,7 +19,7 @@
                     </tr>
                           <tr>
                     <td>  
-                        <asp:TextBox ID="EmailAddress" CssClass="inputbox" runat="server" ></asp:TextBox>  
+                        <asp:TextBox ID="EmailAddress" CssClass="inputbox" Text="email address" runat="server" ></asp:TextBox>  
                                <asp:RequiredFieldValidator ID="RequiredFieldEmailAddress" ControlToValidate="EmailAddress" runat="server" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
     
                                </td>
@@ -37,7 +37,7 @@
 
                           <tr>
                               <td>
-                                             <asp:Button ID="SubmitButton" runat="server" Text="Submit" />
+                                             <asp:Button ID="SubmitButton" runat="server" Text="Submit" OnClick="SubmitButton_Click" />
                               </td>
                           </tr>
 

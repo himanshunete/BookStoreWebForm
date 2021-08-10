@@ -7,6 +7,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+   
+  <asp:Label ID="RegistrationMessage" CssClass="alert" runat="server" Text="Hello" Visible="false"></asp:Label>
+
+
+
+
+
+
               <div class="boxRegister">  
 
                   <div class="title"> Registration </div>
@@ -84,34 +92,44 @@
                        
                             <tr>  
                     <td>Confirm Password:</td> 
+
                                 </tr>
-                          <tr>
+
+                           <tr>
                     <td>  
-                        <asp:TextBox ID="ConfirmPassword" CssClass="inputbox" runat="server" TextMode="Password"></asp:TextBox> 
                       
-                          <asp:RequiredFieldValidator ID="RequiredFieldConfirmPassword" ControlToValidate="ConfirmPassword" runat="server" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                          <asp:TextBox ID="ConfirmPassword" CssClass="inputbox" runat="server" TextMode="Password" ></asp:TextBox> 
+                      
+                             <asp:RequiredFieldValidator ID="RequiredFieldConfirmPassword" ControlToValidate="ConfirmPassword" runat="server" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
     
                         
                                </td>
-                      
-                          <tr>
+                    </tr>  
+                              <tr>
+                          
                     <td>  
 
-<asp:RegularExpressionValidator ID="RegularExpressionConfirmPassword" ControlToValidate="ConfirmPassword" runat="server"  ></asp:RegularExpressionValidator>
-                        
+<asp:RegularExpressionValidator ID="RegularExpressionConfirmPassword" ControlToValidate="ConfirmPassword" runat="server" ErrorMessage="Enter Correct Password" ValidationExpression="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$"></asp:RegularExpressionValidator>
                     </td>  
                 </tr>  
-                          <tr>
+                       
+
+
+                        
+                      
+
+
+                         <%-- <tr>
                               <td>
                                   <asp:CompareValidator ID="CompareValidator1" runat="server" 
         ControlToCompare="Password" ControlToValidate="ConfirmPassword" ErrorMessage="Password mismatch">
     </asp:CompareValidator>
                               </td>
-                          </tr>
+                          </tr>--%>
                 <tr>  
                     <td class="register-last-row">  
-                        <asp:Button ID="Button1" runat="server" Text="Create Account" OnClick="Button1_Click" />
-                        <asp:LinkButton ID="Login" CssClass="login-button" runat="server">Login</asp:LinkButton>
+                        <asp:Button ID="Button1" runat="server" Text="Create Account" OnClick="Button1_Click1"  />
+                        <asp:LinkButton ID="Login" CssClass="login-button"  runat="server">Login</asp:LinkButton>
                     </td>  
                 </tr>  
             </table> 
