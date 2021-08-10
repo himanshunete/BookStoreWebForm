@@ -38,7 +38,6 @@ namespace BookStoreWebForm.Login
             int row = com.ExecuteNonQuery();
             var result = ReturnParameter.Value;
 
-
             if (result != null && result.Equals(1))
             {
                 LoginMessage.Text = "Account doesnt exist";
