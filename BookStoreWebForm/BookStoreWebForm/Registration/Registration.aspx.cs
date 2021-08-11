@@ -35,7 +35,7 @@ namespace BookStoreWebForm.Registration
             SqlCommand com = new SqlCommand("spRegister", con);
             com.CommandType = System.Data.CommandType.StoredProcedure;
 
-            int Result = 0;
+        
             com.Parameters.AddWithValue("@FirstName", FirstName.Text);
             com.Parameters.AddWithValue("@LastName", LastName.Text);
             com.Parameters.AddWithValue("@EmailAddress", EmailAddress.Text);
@@ -47,7 +47,7 @@ namespace BookStoreWebForm.Registration
             con.Open();
             int row = com.ExecuteNonQuery();
             var result = ReturnParameter.Value;
-
+            con.Close();
 
             if (result != null && result.Equals(1))
             {
@@ -62,9 +62,11 @@ namespace BookStoreWebForm.Registration
                 RegistrationMessage.Visible = true;
             }
 
-            
-           
-            con.Close();
+            Session.Timeout = 1;
+
+
+
+
         }
 
 

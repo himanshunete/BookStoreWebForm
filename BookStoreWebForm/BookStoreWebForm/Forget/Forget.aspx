@@ -7,6 +7,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+     <asp:Label ID="ForgetMessage" CssClass="alert" runat="server" Text="Hello" Visible="false"></asp:Label>
+
      <div class="boxForget">  
 
                   <div class="forget-title"> Forget Password </div>

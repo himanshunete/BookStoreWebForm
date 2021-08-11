@@ -14,64 +14,60 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        
-        
-            <nav class="navbar navbar-expand-lg navigation" >
-                <asp:Image ID="Image1" ImageUrl="~/img/Bookstore.png" CssClass="bookstore-image" runat="server" />
-                <asp:Label ID="BookstoreTitle" CssClass="bookstore-title" runat="server" Text="Bookstore"></asp:Label>
 
-<%--                <asp:ImageButton ID="SearchIcon" runat="server" />
 
-                <asp:TextBox ID="Search" CssClass="search" runat="server" Text="search..."></asp:TextBox>--%>
+        <nav class="navbar navbar-expand-lg navigation">
+            <asp:Image ID="Image1" ImageUrl="~/img/Bookstore.png" CssClass="bookstore-image" runat="server" />
+            <asp:Label ID="BookstoreTitle" CssClass="bookstore-title" runat="server" Text="Bookstore"></asp:Label>
 
-                <div class="search">
-    <asp:ImageButton ID="ClickMeButton" runat="server" ImageUrl="~/img/search-icon.png" CssClass="nice-button" />
-    <asp:TextBox ID="txtDescription" runat="server" CssClass="nice-input" Text="search..." ></asp:TextBox>
-</div>
+            <div class="search">
+                <asp:ImageButton ID="ClickMeButton" runat="server" ImageUrl="~/img/search-icon.png" CssClass="nice-button" />
+                <asp:TextBox ID="txtDescription" runat="server" CssClass="nice-input" Text="search..."></asp:TextBox>
+            </div>
 
-                <div class="cartandwishlist">
-                    <div>
-                  
+            <div class="cartandwishlist">
+                <div>
+
                     <asp:LinkButton ID="Cart" runat="server">
                         <asp:ImageButton ID="CartImage" ImageUrl="~/img/snapcart.png" CssClass="cartimage" runat="server" />
                     </asp:LinkButton>
-                        </div>
-                    <div>
-              
-                      <asp:LinkButton ID="WishList" runat="server" CssClass="wishlistimage">
+                </div>
+                <div>
+
+                    <asp:LinkButton ID="WishList" runat="server" CssClass="wishlistimage">
                         <i class="fa fa-heart-o" style="color:white" ></i>
                     </asp:LinkButton>
-                    </div>
-                    </div>
-               
-
-                     <div class="navigation">
-                  
-                       
-
-             
-                            <asp:LinkButton class="nav-link"  ID="LinkButton1" runat="server">Login</asp:LinkButton>
-                        
-                 
-                            <asp:LinkButton class="nav-link"  ID="LinkButton2" runat="server">Sign Up</asp:LinkButton>
-            
-                            <asp:LinkButton class="nav-link" ID="LinkButton3" runat="server">Logout</asp:LinkButton>
-                        
-
-                       
-  
-                         </div>
-                
+                </div>
+            </div>
 
 
-            </nav>
-        
+            <div class="navigation">
 
 
 
 
-           
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                <asp:LinkButton class="nav-link" ID="LinkButton1" CssClass="btn btn-outline-light" Style="height: 35px" runat="server">Login</asp:LinkButton>
+
+
+                <asp:LinkButton class="nav-link" ID="LinkButton2" CssClass="btn btn-outline-light" Style="height: 35px" runat="server">Sign Up</asp:LinkButton>
+
+
+
+
+
+
+            </div>
+
+
+
+        </nav>
+
+
+
+
+
+
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
 
             </asp:ContentPlaceHolder>
 

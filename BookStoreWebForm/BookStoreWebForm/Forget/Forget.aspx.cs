@@ -3,6 +3,9 @@ using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -16,71 +19,14 @@ namespace BookStoreWebForm.Forget
     public partial class Forget : System.Web.UI.Page
     {
 
-        MessageQueue queue = new MessageQueue(@".\private$\tokenQueue");
-
-       
-
+        private readonly Random _random = new Random();
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session.Timeout = 1;
 
         }
 
-        /// <summary>
-        /// Sends the password reset link to MSMQ 
-        /// </summary>
-        /// <param name="link"></param>
-        public void MSMQSender(string email)
-        {
-            try
-            {
-                if (!MessageQueue.Exists(queue.Path))
-                {
-                    MessageQueue.Create(queue.Path);
-                }
-                queue.Formatter = new XmlMessageFormatter(new Type[] { typeof(string) });
-                Message msg = new Message
-                {
-                    Label = "password reset link",
-                    Body = JsonConvert.SerializeObject(email),
-                };
-                queue.Send(msg);
-                queue.ReceiveCompleted += MSMQReceiver;
-                queue.BeginReceive(TimeSpan.FromSeconds(5));
-                queue.Close();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-
-        /// <summary>
-        /// Handles the ReceiveCompleted event of the Queue control.
-        /// sends email when message received from queue
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public void MSMQReceiver(object sender, ReceiveCompletedEventArgs e)
-        {
-            try
-            {
-                MessageQueue queue = (MessageQueue)sender;
-                Message msg = queue.EndReceive(e.AsyncResult);
-                string email = JsonConvert.DeserializeObject<string>(msg.Body.ToString());
-
-                EmailService(email);
-
-                queue.BeginReceive(TimeSpan.FromSeconds(5));
-            }
-            catch (Exception ex)
-            {
-
-            }
-        }
-
-
-        public void EmailService(string email)
+        public void EmailService(string email, int otp)
         {
             try
             {
@@ -91,6 +37,8 @@ namespace BookStoreWebForm.Forget
                     HtmlBody = streamReader.ReadToEnd();
                 }
 
+                string OTP = Convert.ToString(otp);
+                HtmlBody = HtmlBody.Replace("OTP", OTP);
                 MailMessage message = new MailMessage();
                 SmtpClient smtp = new SmtpClient();
                 message.From = new MailAddress(email);
@@ -114,9 +62,57 @@ namespace BookStoreWebForm.Forget
 
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
-            string email = EmailAddress.Text;
-            MSMQSender(email);
+            string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
+            //create new sqlconnection and connection to database by using connection string from web.config file  
+            SqlConnection con = new SqlConnection(strcon);
+            SqlCommand com = new SqlCommand("spForget", con);
+            com.CommandType = System.Data.CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@EmailAddress", EmailAddress.Text);
+            var ReturnParameter = com.Parameters.Add("@Result", SqlDbType.Int);
+            ReturnParameter.Direction = ParameterDirection.ReturnValue;
+            con.Open();
+            var result = ReturnParameter.Value;
+            con.Close();
 
+            if (result != null && result.Equals(1))
+            {
+                ForgetMessage.Text = "Account doesnt exist, Please Register";
+                ForgetMessage.Visible = true;
+
+            }
+
+            else if (result != null && result.Equals(2))
+            {
+                string email = EmailAddress.Text;
+                int otp = RandomNumber();
+
+                Session.Timeout = 1;
+                Session["email"] = otp;
+               
+
+                // Checking Session variable is not empty  
+                if (Session["email"] != null)
+                {
+                    EmailService(email, otp);
+                    ForgetMessage.Text = "Email is being sent, Please check your email";
+                    ForgetMessage.Visible = true;
+                   
+                }
+
+            }
+
+           
+
+        }
+
+        
+
+        // Generates a random number within a range.      
+        public int RandomNumber()
+        {
+            int min = 1000;
+            int max = 9999;
+            return _random.Next(min, max);
         }
     }
 }

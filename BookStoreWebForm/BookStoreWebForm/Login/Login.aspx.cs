@@ -19,7 +19,7 @@ namespace BookStoreWebForm.Login
 
         protected void LoginButton_Click(object sender, EventArgs e)
         {
-            int Result = 0;
+            
             string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
             //create new sqlconnection and connection to database by using connection string from web.config file  
             SqlConnection con = new SqlConnection(strcon);
@@ -37,6 +37,7 @@ namespace BookStoreWebForm.Login
             con.Open();
             int row = com.ExecuteNonQuery();
             var result = ReturnParameter.Value;
+            con.Close();
 
             if (result != null && result.Equals(1))
             {
@@ -56,7 +57,7 @@ namespace BookStoreWebForm.Login
                 LoginMessage.Text = "Login is successful";
                 LoginMessage.Visible = true;
             }
-            con.Close();
+            
 
 
         }

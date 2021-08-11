@@ -206,6 +206,8 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="Service\ResetPassword.html" />
+    <Content Include="Service\Verification.aspx" />
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -278,6 +280,13 @@
     <Compile Include="Service\CustomerService.cs" />
     <Compile Include="Service\Encryption.cs" />
     <Compile Include="Service\SMTP.cs" />
+    <Compile Include="Service\Verification.aspx.cs">
+      <DependentUpon>Verification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Service\Verification.aspx.designer.cs">
+      <DependentUpon>Verification.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
