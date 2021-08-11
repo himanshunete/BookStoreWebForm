@@ -64,7 +64,7 @@
 
                           <tr>
                               <td class="reset-row">
-                                             <asp:Button ID="SubmitButton" runat="server" Text="Reset" />
+                                             <asp:Button ID="SubmitButton" runat="server" Text="Reset" OnClick="SubmitButton_Click" />
                               </td>
                           </tr>
 
@@ -74,4 +74,8 @@
                  
           
         </div>  
+
+
+          <asp:Label ID="ResetMessage" CssClass="alert" runat="server" Text="Hello" Visible="false"></asp:Label>
+        
 </asp:Content>

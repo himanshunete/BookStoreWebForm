@@ -115,8 +115,6 @@ namespace BookStoreWebForm.Forget
 
         }
 
-        
-
         // Generates a random number within a range.      
         public int RandomNumber()
         {
