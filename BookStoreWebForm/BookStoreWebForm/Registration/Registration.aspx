@@ -161,8 +161,7 @@
                                             </div>
                              <div class="row">
                              <asp:CompareValidator ID="CompareValidator1" runat="server" 
-        ControlToCompare="Password" ControlToValidate="ConfirmPassword" ErrorMessage="Password mismatch">
-    </asp:CompareValidator>
+        ControlToCompare="Password" ControlToValidate="ConfirmPassword" ErrorMessage="Password mismatch"> </asp:CompareValidator>
 
                                  </div>
 

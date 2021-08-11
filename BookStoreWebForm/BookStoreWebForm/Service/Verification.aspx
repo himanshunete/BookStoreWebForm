@@ -5,12 +5,12 @@
             <link  type="text/css" rel="stylesheet" href="../CSS/Registration.css" />
 
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Verification" ContentPlaceHolderID="ContentPlaceHolder1" Visible="false" runat="server">
   
     <br />
     <br />
-     <div class="container">
-
+     <div ID =" Verification" class ="container" Visible=>
+         
             <div class="row">
 
                 <div class="col-md-6 mx-auto">
@@ -57,6 +57,8 @@
 
                           <%--  ****************************************************************--%>
 
+
+
                             <div class="row">
 
                                 <div class="col-md-2 mx-auto">
@@ -80,6 +82,5 @@
             </div>
 
         </div>
-
  
 </asp:Content>
