@@ -5,10 +5,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
             <link  type="text/css" rel="stylesheet" href="../CSS/Registration.css" />
        <script  src="../Scripts/WebForms/Timer.js" type="text/javascript" ></script>
+    <script  src="../Scripts/WebForms/snackbar.js" type="text/javascript" ></script>
 </asp:Content>
 <asp:Content ID="Forget" ContentPlaceHolderID="ContentPlaceHolder1" Visible="true" runat="server">
 
-     <asp:Label ID="ForgetMessage" CssClass="alert" runat="server" Text="Hello" Visible="false"></asp:Label>
+    
 
 
     <br />
@@ -203,11 +204,12 @@
      </div>
 
 
-    <button onclick="myFunction()">Show Snackbar</button>
+    <%--<button onclick="myFunction()">Show Snackbar</button>--%>
 
 <div id="snackbar" runat="server">Some text some message..</div>
 
     <asp:Label ID="OtpMessage" CssClass="alert" runat="server" Text="Hello" Visible="false"></asp:Label>
+     <asp:Label ID="ForgetMessage" CssClass="alert" runat="server" Text="Hello" Visible="false"></asp:Label>
 </asp:Content>
 
 

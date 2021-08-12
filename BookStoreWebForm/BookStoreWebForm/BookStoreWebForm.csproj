@@ -156,6 +156,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="BookStore.Master" />
+    <Content Include="Scripts\WebForms\snackbar.js" />
     <Content Include="Scripts\WebForms\Timer.js" />
     <Content Include="WebForm\ResetPassword.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />

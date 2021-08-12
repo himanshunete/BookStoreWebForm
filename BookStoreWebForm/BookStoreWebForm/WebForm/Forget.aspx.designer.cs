@@ -15,15 +15,6 @@ namespace BookStoreWebForm.WebForm
     {
 
         /// <summary>
-        /// ForgetMessage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ForgetMessage;
-
-        /// <summary>
         /// card1 control.
         /// </summary>
         /// <remarks>
@@ -292,5 +283,14 @@ namespace BookStoreWebForm.WebForm
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label OtpMessage;
+
+        /// <summary>
+        /// ForgetMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ForgetMessage;
     }
 }
