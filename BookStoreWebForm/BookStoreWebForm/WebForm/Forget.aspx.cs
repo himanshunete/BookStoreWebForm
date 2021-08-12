@@ -111,7 +111,29 @@ namespace BookStoreWebForm.WebForm
 
         protected void ResetButton_Click(object sender, EventArgs e)
         {
+            Response.Redirect("https://localhost:44313/WebForm/ResetPassword.aspx");
+        }
 
+        protected void Login_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("https://localhost:44313/WebForm/Login.aspx");
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            int otp = RandomNumber();
+            Session["email"] = otp;
+            string email = Session["EmailAddress"].ToString();
+
+            // Checking Session variable is not empty  
+            if (Session["email"] == null)
+            {
+                OtpMessage.Text = "Otp is not generated, again generate an otp";
+            }
+            else
+            {
+                smtp.EmailService(email, otp);
+            }
         }
     }
 }

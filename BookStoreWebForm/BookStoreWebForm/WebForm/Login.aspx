@@ -92,7 +92,7 @@
 
                         <div class="row">
                               <div class="col-md-2 ">
-                        <asp:LinkButton ID="ForgetPassword"  CssClass="forget-button" runat="server">ForgetPassword</asp:LinkButton>
+                        <asp:LinkButton ID="ForgetPassword"  CssClass="forget-button" runat="server" CausesValidation ="false" OnClick="ForgetPassword_Click">ForgetPassword</asp:LinkButton>
                                 </div>
                             </div>
 

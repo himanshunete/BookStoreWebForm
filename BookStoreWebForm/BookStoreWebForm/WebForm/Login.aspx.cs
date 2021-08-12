@@ -50,5 +50,10 @@ namespace BookStoreWebForm.WebForm
         {
             Response.Redirect("https://localhost:44313/WebForm/Registration.aspx");
         }
+
+        protected void ForgetPassword_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("https://localhost:44313/WebForm/Forget.aspx");
+        }
     }
 }

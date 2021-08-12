@@ -75,7 +75,21 @@
 
                                 <div class="col-md-2 mx-auto">
 
-                                    <asp:Button ID="SubmitButton" runat="server" Text="Login" OnClick="SubmitButton_Click" CssClass="btn btn-outline-danger"  />
+                                    <asp:Button ID="SubmitButton" runat="server" Text="Send" OnClick="SubmitButton_Click" CssClass="btn btn-outline-danger"  />
+                                   
+         
+
+                                </div>
+
+                                 
+
+                            </div>
+
+                        <div class="row">
+
+                                <div class="col-md-2 mx-auto">
+
+                                    <asp:Button ID="Login" runat="server" CausesValidation ="false" Text="Login"  CssClass="btn btn-outline-danger" OnClick="Login_Click"  />
                                    
          
 
@@ -135,7 +149,7 @@
 
                                 <div class="col-md-2 mx-auto">
                                   
-                                     <asp:Button ID="Button1" runat="server" Text="Resend" CssClass="btn btn-outline-danger"  />
+                                     <asp:Button ID="Button1" runat="server" Text="Resend" CssClass="btn btn-outline-danger" OnClick="Button1_Click"  />
 
                                 </div>
 
@@ -152,7 +166,7 @@
 
                             <div class="col-md-2 ">
                                   
-                                     <asp:LinkButton ID="ResetButton"  runat="server" OnClick="ResetButton_Click" >Reset Password</asp:LinkButton>
+                                     <asp:LinkButton ID="ResetButton"  runat="server" CausesValidation ="false" OnClick="ResetButton_Click" >Reset Password</asp:LinkButton>
 
                                 </div>
 
