@@ -12,7 +12,7 @@ namespace BookStoreWebForm.Service
     public class UserAccount
     {
         //create new sqlconnection and connection to database by using connection string from web.config file  
-        private static readonly string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
+        public static readonly string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
         SqlConnection con = new SqlConnection(strcon);
 
         public object Registration(User user)
@@ -28,6 +28,7 @@ namespace BookStoreWebForm.Service
             ReturnParameter.Direction = ParameterDirection.ReturnValue;
 
             con.Open();
+            com.ExecuteNonQuery();
             var result = ReturnParameter.Value;
             con.Close();
             return result;
@@ -44,6 +45,7 @@ namespace BookStoreWebForm.Service
             var ReturnParameter = com.Parameters.Add("@Result", SqlDbType.Int);
             ReturnParameter.Direction = ParameterDirection.ReturnValue;
             con.Open();
+            com.ExecuteNonQuery();
             var result = ReturnParameter.Value;
             con.Close();
             return result;
@@ -57,6 +59,7 @@ namespace BookStoreWebForm.Service
             var ReturnParameter = com.Parameters.Add("@Result", SqlDbType.Int);
             ReturnParameter.Direction = ParameterDirection.ReturnValue;
             con.Open();
+            com.ExecuteNonQuery();
             var result = ReturnParameter.Value;
             con.Close();
             return result;

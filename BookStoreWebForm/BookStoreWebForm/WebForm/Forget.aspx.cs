@@ -35,6 +35,8 @@ namespace BookStoreWebForm.WebForm
 
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
+
+            
             user.EmailAddress = EmailAddress.Text;
             Session["EmailAddress"] = EmailAddress.Text;
             var result = forget.Forget(user);
@@ -53,13 +55,17 @@ namespace BookStoreWebForm.WebForm
                 // Checking Session variable is not empty  
                 if (Session["email"] == null)
                 {
-                    OtpMessage.Text = "Otp is not generated, again generate an otp";
+                    snackbar.InnerText = "Otp is not generated, again generate an otp";
                 }
                 else {
 
                     smtp.EmailService(email, otp);
+                    card1.Visible = false;
+                    card2.Visible = true;
                 }
             }
+
+             
         }
 
         // Generates a random number within a range.      
@@ -72,40 +78,41 @@ namespace BookStoreWebForm.WebForm
 
         protected void Button3_Click(object sender, EventArgs e)
         {
+
             
-                DateTime expiry = (DateTime)base.Context.Session["SessionExpiry"];
-                if (expiry > DateTime.Now)
+                // Convert  integers to string
+                String s1 = One.Text.ToString();
+                String s2 = Two.Text.ToString();
+                String s3 = Three.Text.ToString();
+                String s4 = Four.Text.ToString();
+
+                // Concatenate both strings
+                var otpString = s1 + s2 + s3 + s4;
+
+                // Convert the concatenated string
+                // to integer
+                var otpInt = int.Parse(otpString);
+
+                if (Session["email"].Equals(otpInt))
                 {
 
-                    // Convert  integers to string
-                    String s1 = One.TextMode.ToString();
-                    String s2 = Two.TextMode.ToString();
-                    String s3 = Three.TextMode.ToString();
-                    String s4 = Four.TextMode.ToString();
-
-                    // Concatenate both strings
-                    String otpString = s1 + s2 + s3 + s4;
-
-                    // Convert the concatenated string
-                    // to integer
-                    var otpInt = int.Parse(otpString);
-
-                    if (Session["email"].Equals(otpInt))
-                    {
-                        OtpMessage.Text = "Otp verification is done, you can proceed to reset your password ";
-                    }
-
-                    else
-                    {
-                        OtpMessage.Text = "Incorrect otp, send again ";
-                    }
-
+                snackbar.InnerText = "Otp verification is done, you can proceed to reset your password ";
+                    title.Visible = false;
+                    One.Enabled = false;
+                    Two.Enabled = false;
+                    Three.Enabled = false;
+                    Four.Enabled = false;
+                    Button2.Enabled = false;
+                    VerifyButton.Enabled = false;
+                    LinkButton1.Enabled = true;
                 }
 
                 else
                 {
-                    OtpMessage.Text = "Otp is expired , send new otp";
+                snackbar.InnerText = "Incorrect otp, send again ";
                 }
+
+            
             
         }
 
