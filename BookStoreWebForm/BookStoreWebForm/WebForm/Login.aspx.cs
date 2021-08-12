@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BookStoreWebForm.Model.ResquestModel;
+using BookStoreWebForm.Service;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -8,10 +10,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace BookStoreWebForm.Login
+namespace BookStoreWebForm.WebForm
 {
     public partial class Login : System.Web.UI.Page
     {
+        UserAccount login = new UserAccount();
+        User user = new User();
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -19,25 +24,9 @@ namespace BookStoreWebForm.Login
 
         protected void LoginButton_Click(object sender, EventArgs e)
         {
-            
-            string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
-            //create new sqlconnection and connection to database by using connection string from web.config file  
-            SqlConnection con = new SqlConnection(strcon);
-            SqlCommand com = new SqlCommand("spLogin", con);
-            com.CommandType = System.Data.CommandType.StoredProcedure;
-
-
-        
-            com.Parameters.AddWithValue("@EmailAddress", EmailAddress.Text);
-            com.Parameters.AddWithValue("@Password", Password.Text);
-
-
-            var ReturnParameter = com.Parameters.Add("@Result", SqlDbType.Int);
-            ReturnParameter.Direction = ParameterDirection.ReturnValue;
-            con.Open();
-            int row = com.ExecuteNonQuery();
-            var result = ReturnParameter.Value;
-            con.Close();
+            user.EmailAddress = EmailAddress.Text;
+            user.Password = Password.Text;
+            var result = login.Login(user);
 
             if (result != null && result.Equals(1))
             {
@@ -45,26 +34,21 @@ namespace BookStoreWebForm.Login
                 LoginMessage.Visible = true;
 
             }
-
             else if (result != null && result.Equals(2))
             {
                 LoginMessage.Text = "Wrong Password </br> Failed to Login";
                 LoginMessage.Visible = true;
             }
-
             else
             {
                 LoginMessage.Text = "Login is successful";
                 LoginMessage.Visible = true;
             }
-            
-
-
         }
 
         protected void CreateButton_Click(object sender, EventArgs e)
         {
-           
+            Response.Redirect("https://localhost:44313/WebForm/Registration.aspx");
         }
     }
 }

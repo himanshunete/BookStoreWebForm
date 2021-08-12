@@ -20,6 +20,8 @@
             <asp:Image ID="Image1" ImageUrl="~/img/Bookstore.png" CssClass="bookstore-image" runat="server" />
             <asp:Label ID="BookstoreTitle" CssClass="bookstore-title" runat="server" Text="Bookstore"></asp:Label>
 
+
+
             <div class="search">
                 <asp:ImageButton ID="ClickMeButton" runat="server" ImageUrl="~/img/search-icon.png" CssClass="nice-button" />
                 <asp:TextBox ID="txtDescription" runat="server" CssClass="nice-input" Text="search..."></asp:TextBox>

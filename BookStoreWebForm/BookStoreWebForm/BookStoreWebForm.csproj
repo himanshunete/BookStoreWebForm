@@ -146,7 +146,6 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Forget\Forget.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -157,27 +156,28 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="BookStore.Master" />
+    <Content Include="WebForm\ResetPassword.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="img\Bookstore.PNG" />
-    <Content Include="img\cart.png" />
-    <Content Include="img\heart.png" />
-    <Content Include="img\heart2.png" />
-    <Content Include="img\heart4.png" />
-    <Content Include="img\heart5.PNG" />
-    <Content Include="img\heart6.PNG" />
-    <Content Include="img\heart7.png" />
-    <Content Include="img\heart8.PNG" />
-    <Content Include="img\search-icon.png" />
-    <Content Include="img\snapcart.PNG" />
-    <Content Include="img\snapwishlist.png" />
-    <Content Include="img\whitecart.png" />
-    <Content Include="img\whitewishlisticon.png" />
-    <Content Include="img\wish.png" />
-    <Content Include="img\wish1.png" />
-    <Content Include="img\wishlist.png" />
-    <Content Include="Login\Login.aspx" />
-    <Content Include="Registration\Registration.aspx" />
-    <Content Include="ResetPassword\ResetPassword.aspx" />
+    <Content Include="assets\Bookstore.PNG" />
+    <Content Include="assets\cart.png" />
+    <Content Include="assets\heart.png" />
+    <Content Include="assets\heart2.png" />
+    <Content Include="assets\heart4.png" />
+    <Content Include="assets\heart5.PNG" />
+    <Content Include="assets\heart6.PNG" />
+    <Content Include="assets\heart7.png" />
+    <Content Include="assets\heart8.PNG" />
+    <Content Include="assets\search-icon.png" />
+    <Content Include="assets\snapcart.PNG" />
+    <Content Include="assets\snapwishlist.png" />
+    <Content Include="assets\whitecart.png" />
+    <Content Include="assets\whitewishlisticon.png" />
+    <Content Include="assets\wish.png" />
+    <Content Include="assets\wish1.png" />
+    <Content Include="assets\wishlist.png" />
+    <Content Include="WebForm\Forget.aspx" />
+    <Content Include="WebForm\Login.aspx" />
+    <Content Include="WebForm\Registration.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -245,40 +245,33 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Forget\Forget.aspx.cs">
-      <DependentUpon>Forget.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Forget\Forget.aspx.designer.cs">
-      <DependentUpon>Forget.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Login\Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Login\Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
+    <Compile Include="Model\ResquestModel\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Registration\Registration.aspx.cs">
+    <Compile Include="WebForm\Forget.aspx.cs">
+      <DependentUpon>Forget.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm\Forget.aspx.designer.cs">
+      <DependentUpon>Forget.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm\Registration.aspx.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Registration\Registration.aspx.designer.cs">
+    <Compile Include="WebForm\Registration.aspx.designer.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ResetPassword\ResetPassword.aspx.cs">
-      <DependentUpon>ResetPassword.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ResetPassword\ResetPassword.aspx.designer.cs">
-      <DependentUpon>ResetPassword.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Service\CustomerService.cs" />
-    <Compile Include="Service\Encryption.cs" />
+    <Compile Include="Service\UserAccount.cs" />
     <Compile Include="Service\SMTP.cs" />
     <Compile Include="Service\Verification.aspx.cs">
       <DependentUpon>Verification.aspx</DependentUpon>
@@ -308,10 +301,16 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
+    <Compile Include="WebForm\ResetPassword.aspx.cs">
+      <DependentUpon>ResetPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm\ResetPassword.aspx.designer.cs">
+      <DependentUpon>ResetPassword.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

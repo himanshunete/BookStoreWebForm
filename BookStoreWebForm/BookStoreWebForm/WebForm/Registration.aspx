@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BookStore.Master" AutoEventWireup="true" CodeBehind="Registration.aspx.cs" Inherits="BookStoreWebForm.Registration.Registration" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BookStore.Master" AutoEventWireup="true" CodeBehind="Registration.aspx.cs" Inherits="BookStoreWebForm.WebForm.Registration" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -26,7 +26,7 @@
 
                                 <div class="col">
 
-                                    <h2 class="text-center text-danger">Bookstore</h2>
+                                    <h2 class="text-center text-danger">Registration</h2>
 
 
                                    
@@ -141,7 +141,7 @@
 
                                 <label>Confirm Password</label>
 
-                               <asp:TextBox ID="ConfirmPassword" runat="server" CssClass="form-control"></asp:TextBox>
+                                 &nbsp;<asp:TextBox ID="ConfirmPassword" runat="server" CssClass="form-control"></asp:TextBox>
                                 
 
 
@@ -150,7 +150,7 @@
 
                         </div>
                                      
-                                        <div class="col-md-7  col-sm-7">
+                                        <div class="col">
 
 
 
@@ -177,12 +177,12 @@
 
                                 <div class="col-md-2 mx-auto">
 
-                                    <asp:Button ID="Button1" runat="server" Text="Create Account" CssClass="btn btn-outline-danger"  />
+                                    <asp:Button ID="CreateButton" runat="server" Text="Create Account" CssClass="btn btn-outline-danger" OnClick="Button1_Click1"  />
 
                                 </div>
 
                                  <div class="col-md-2 mx-auto">
-                                 <asp:LinkButton ID="Login" CssClass="btn btn-outline-danger"  runat="server">Login</asp:LinkButton>
+                                 <asp:LinkButton ID="Login" CssClass="btn btn-outline-danger" CausesValidation ="false" runat="server" OnClick="Login_Click">Login</asp:LinkButton>
                                      </div>
 
                             </div>
