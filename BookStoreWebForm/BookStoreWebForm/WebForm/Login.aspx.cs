@@ -22,6 +22,13 @@ namespace BookStoreWebForm.WebForm
 
         }
 
+        public enum MessageType { Success, Error, Info, Warning };
+
+        protected void ShowMessage(string Message, MessageType type)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), System.Guid.NewGuid().ToString(), "ShowMessage('" + Message + "','" + type + "');", true);
+        }
+
         protected void LoginButton_Click(object sender, EventArgs e)
         {
             user.EmailAddress = EmailAddress.Text;
@@ -30,19 +37,15 @@ namespace BookStoreWebForm.WebForm
 
             if (result != null && result.Equals(1))
             {
-                LoginMessage.Text = "Account doesnt exist";
-                LoginMessage.Visible = true;
-
+                ShowMessage("Account doesnt exist", MessageType.Error);
             }
             else if (result != null && result.Equals(2))
             {
-                LoginMessage.Text = "Wrong Password </br> Failed to Login";
-                LoginMessage.Visible = true;
+                ShowMessage("Wrong Password </br> Failed to Login", MessageType.Error);
             }
             else
             {
-                LoginMessage.Text = "Login is successful";
-                LoginMessage.Visible = true;
+                ShowMessage("Login is successful", MessageType.Success);
             }
         }
 

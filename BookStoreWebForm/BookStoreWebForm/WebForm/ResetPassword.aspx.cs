@@ -22,6 +22,13 @@ namespace BookStoreWebForm.WebForm
 
         }
 
+        public enum MessageType { Success, Error, Info, Warning };
+
+        protected void ShowMessage(string Message, MessageType type)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), System.Guid.NewGuid().ToString(), "ShowMessage('" + Message + "','" + type + "');", true);
+        }
+
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
             user.EmailAddress = (string)Session["EmailAddress"];
@@ -30,13 +37,11 @@ namespace BookStoreWebForm.WebForm
 
             if (result != null && result.Equals(1))
             {
-                ResetMessage.Text = "Password reset is successful, Go to Login";
-                ResetMessage.Visible = true;
+                ShowMessage("Password reset is successful, Go to Login", MessageType.Success);
             }
             else
             {
-                ResetMessage.Text = "Password reset is not successful, Please reset again";
-                ResetMessage.Visible = true;
+                ShowMessage("Password reset is not successful, Please reset again", MessageType.Error);
             }
         }
     }

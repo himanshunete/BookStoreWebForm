@@ -28,6 +28,13 @@ namespace BookStoreWebForm.WebForm
 
         }
 
+        public enum MessageType { Success, Error, Info, Warning };
+
+        protected void ShowMessage(string Message, MessageType type)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), System.Guid.NewGuid().ToString(), "ShowMessage('" + Message + "','" + type + "');", true);
+        }
+
         protected void Button1_Click1(object sender, EventArgs e)
         {
             user.FirstName = FirstName.Text;
@@ -38,13 +45,13 @@ namespace BookStoreWebForm.WebForm
 
             if (result != null && result.Equals(1))
             {
-                RegistrationMessage.Text = "Registration is  successful";
-                RegistrationMessage.Visible = true;
+                ShowMessage("Registration is  successful", MessageType.Success);
+
             }
             else
             {
-                RegistrationMessage.Text = "Email already exist";
-                RegistrationMessage.Visible = true;
+                ShowMessage("Email already exist", MessageType.Warning);
+               
             }
         }
 

@@ -71,11 +71,12 @@ namespace BookStoreWebForm.Service
             SqlCommand com = new SqlCommand("spReset", con);
             com.CommandType = System.Data.CommandType.StoredProcedure;
             com.Parameters.AddWithValue("@EmailAddress", user.EmailAddress);
-            com.Parameters.AddWithValue("@Password", user.Password);
+            com.Parameters.AddWithValue("@Password", EncodePasswordToBase64(user.Password));
 
             var ReturnParameter = com.Parameters.Add("@Result", SqlDbType.Int);
             ReturnParameter.Direction = ParameterDirection.ReturnValue;
             con.Open();
+            com.ExecuteNonQuery();
             var result = ReturnParameter.Value;
             con.Close();
             return result;

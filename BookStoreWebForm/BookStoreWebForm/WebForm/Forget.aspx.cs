@@ -29,8 +29,14 @@ namespace BookStoreWebForm.WebForm
         {
             if (!IsPostBack)
             {
-                
             }
+        }
+
+        public enum MessageType { Success, Error, Info, Warning };
+
+        protected void ShowMessage(string Message, MessageType type)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), System.Guid.NewGuid().ToString(), "ShowMessage('" + Message + "','" + type + "');", true);
         }
 
         protected void SubmitButton_Click(object sender, EventArgs e)
@@ -43,8 +49,8 @@ namespace BookStoreWebForm.WebForm
 
             if (result != null && result.Equals(1))
             {
-                ForgetMessage.Text = "Account doesnt exist, Please Register";
-                ForgetMessage.Visible = true;
+                ShowMessage("Account doesnt exist, Please Register", MessageType.Error);
+   
             }
             else if (result != null && result.Equals(2))
             {
@@ -55,11 +61,12 @@ namespace BookStoreWebForm.WebForm
                 // Checking Session variable is not empty  
                 if (Session["email"] == null)
                 {
-                    snackbar.InnerText = "Otp is not generated, again generate an otp";
+                    ShowMessage("Otp is not generated, again generate an otp", MessageType.Error);
                 }
                 else {
 
                     smtp.EmailService(email, otp);
+                    ShowMessage("Otp is being sent through email", MessageType.Success);
                     card1.Visible = false;
                     card2.Visible = true;
                 }
@@ -78,7 +85,10 @@ namespace BookStoreWebForm.WebForm
 
         protected void Button3_Click(object sender, EventArgs e)
         {
-
+            //if ( demo.Visible == false )
+            //{
+            //    OtpMessage.Text = "time is over, resend otp";
+            //}
             
                 // Convert  integers to string
                 String s1 = One.Text.ToString();
@@ -95,8 +105,7 @@ namespace BookStoreWebForm.WebForm
 
                 if (Session["email"].Equals(otpInt))
                 {
-
-                snackbar.InnerText = "Otp verification is done, you can proceed to reset your password ";
+                ShowMessage("Otp verification is done, you can proceed to reset your password ", MessageType.Success);
                     title.Visible = false;
                     One.Enabled = false;
                     Two.Enabled = false;
@@ -109,7 +118,8 @@ namespace BookStoreWebForm.WebForm
 
                 else
                 {
-                snackbar.InnerText = "Incorrect otp, send again ";
+                ShowMessage("Incorrect otp, send again", MessageType.Error);
+                
                 }
 
             
@@ -135,7 +145,8 @@ namespace BookStoreWebForm.WebForm
             // Checking Session variable is not empty  
             if (Session["email"] == null)
             {
-                OtpMessage.Text = "Otp is not generated, again generate an otp";
+                ShowMessage("Otp is not generated, again generate an otp", MessageType.Error);
+
             }
             else
             {
