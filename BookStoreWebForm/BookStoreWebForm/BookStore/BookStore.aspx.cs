@@ -33,7 +33,8 @@ namespace BookStoreWebForm.BookStore
             RepeatInformation.DataBind();
             con.Close();
 
-           
+            var count = bookService.DisplayBookCount();
+            BookCount.Text = count.ToString() + " items";
         }
     }
 }

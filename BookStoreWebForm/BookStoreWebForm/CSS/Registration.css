@@ -337,6 +337,20 @@
     width: 120px;
 }
 
+.bookcount {
+    display:flex;
+    justify-content:flex-start;
+    left:190px;
+    top:70px;
+    position:absolute;
+}
+
+.Count {
+    position:absolute;
+    top:10px;
+    left:90px;
+}
+
     
    
 

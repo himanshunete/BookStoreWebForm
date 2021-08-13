@@ -12,6 +12,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+    <div class="bookcount" >
+            <asp:Label ID="Book" runat="server" style="font-size:30px" Text="Books"></asp:Label>
+            <asp:Label ID="BookCount" CssClass="Count" runat="server" style="font-size:15px" Text="items"></asp:Label>
+    </div>
+
+      <asp:Label ID="Label1" runat="server" style="position:absolute; left:60px; font-size:30px" Text="Books"></asp:Label>
+            <asp:Label ID="Label2" typeof="text" runat="server" style="position:absolute; left:150px;font-size:15px" Text="items"></asp:Label>
+    
       <div  style="display:flex; justify-content:stretch ; margin-left:170px; margin-top:120px; align-items:stretch; flex-wrap:wrap">
      <asp:Repeater ID="RepeatInformation"     runat="server">  
          <HeaderTemplate>

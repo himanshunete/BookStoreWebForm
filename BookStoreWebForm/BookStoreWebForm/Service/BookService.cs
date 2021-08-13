@@ -14,20 +14,25 @@ namespace BookStoreWebForm.Service
         public static readonly string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
         SqlConnection con = new SqlConnection(strcon);
 
-        public object DisplayBook()
+        public object DisplayBookCount()
         {
 
-            SqlCommand com = new SqlCommand("spDisplayBook", con);
+            SqlCommand com = new SqlCommand("spDisplayBookCount", con);
             com.CommandType = System.Data.CommandType.StoredProcedure;
 
             var ReturnParameter = com.Parameters.Add("@Result", SqlDbType.Int);
             ReturnParameter.Direction = ParameterDirection.ReturnValue;
 
             con.Open();
-            var books = com.ExecuteReader();
+            com.ExecuteNonQuery();
             var result = ReturnParameter.Value;
             con.Close();
-            return books;
+
+            return result;
+
+
         }
+
+
     }
 }
