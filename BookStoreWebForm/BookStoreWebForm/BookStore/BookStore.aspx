@@ -20,13 +20,27 @@
            <ItemTemplate> 
                
               
-                <div class="card cardFlex1" style=" margin: 10px;  height: 310px; width: 17rem;">
+                <div class="card cardFlex1" style=" margin: 10px;  height: 330px; width: 18rem;">
                      <asp:Image ID="Image1" ImageUrl="~/assets/PNGPIX-COM-Mahendra-Singh-Dhoni-PNG-Image-500x488.png" style="height:175px;width:280px" runat="server" />
   <div class="card-body ">
-    <h5 class="card-title" style="position:absolute; bottom:5px"><%#DataBinder.Eval(Container,"DataItem.Name")%> </h5>
-    <p class="card-text" style="position:absolute; bottom:10px"><%#DataBinder.Eval(Container,"DataItem.AuthorName")%> </p>
-    <p class="card-text" style="bottom:5px"> <%#DataBinder.Eval(Container,"DataItem.Price")%>  </p>
+    <h5 class="card-title" style="position:absolute; bottom:105px"><%#DataBinder.Eval(Container,"DataItem.Name")%> </h5>
+    <p class="card-text" style="position:absolute; bottom:73px"><%#DataBinder.Eval(Container,"DataItem.AuthorName")%> </p>
+    <p class="card-text" style="position:absolute; bottom:61px"> <%#DataBinder.Eval(Container,"DataItem.Price")%>  </p>
   </div>
+
+                    <div class="row">
+
+                                <div class="col-md-2">
+
+                                    <asp:Button ID="CreateButton"  runat="server" style=" position:absolute; bottom: 10px; left:15px;  width:120px" Text="ADD TO BAG" CssClass="btn btn-danger "   />
+
+                                </div>
+
+                                 <div class="col-md-2">
+                                  <asp:Button ID="Button1" runat="server" Text="WISHLIST" CssClass="btn btn-outline-dark wishListButton"  />
+                                     </div>
+
+                            </div>
                     </div>
 
                      
