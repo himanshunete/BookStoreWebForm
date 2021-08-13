@@ -120,7 +120,7 @@
 
                              <label>Password</label>
 
-                             <asp:TextBox ID="Password" runat="server" CssClass="form-control"></asp:TextBox>
+                             <asp:TextBox ID="Password" runat="server" type="password" CssClass="form-control"></asp:TextBox>
                             
                               <asp:RegularExpressionValidator ID="RegularExpressionValidator4" ControlToValidate="Password" runat="server" ErrorMessage="Enter Correct Password" ForeColor="Red" ValidationExpression="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$"></asp:RegularExpressionValidator>
 
@@ -145,7 +145,7 @@
 
                                 <label>Confirm Password</label>
 
-                                 &nbsp;<asp:TextBox ID="ConfirmPassword" runat="server" CssClass="form-control"></asp:TextBox>
+                                 &nbsp;<asp:TextBox ID="ConfirmPassword" type="password" runat="server" CssClass="form-control"></asp:TextBox>
                                 
 
 

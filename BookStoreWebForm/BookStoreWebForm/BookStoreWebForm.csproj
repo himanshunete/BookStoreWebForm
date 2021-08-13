@@ -134,6 +134,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="assets\PNGPIX-COM-Mahendra-Singh-Dhoni-PNG-Image-500x488.png" />
+    <Content Include="BookStore\BookStore.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -233,6 +235,13 @@
     <Compile Include="BookStore.Master.designer.cs">
       <DependentUpon>BookStore.Master</DependentUpon>
     </Compile>
+    <Compile Include="BookStore\BookStore.aspx.cs">
+      <DependentUpon>BookStore.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookStore\BookStore.aspx.designer.cs">
+      <DependentUpon>BookStore.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -252,6 +261,7 @@
     </Compile>
     <Compile Include="Model\ResquestModel\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\BookService.cs" />
     <Compile Include="WebForm\Forget.aspx.cs">
       <DependentUpon>Forget.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

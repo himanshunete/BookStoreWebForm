@@ -22,7 +22,7 @@
 
             <div class="row">
 
-                <div class="col-md-6 mx-auto">
+                <div class="col-md-4 mx-auto">
 
                     <div class="card">
 
@@ -96,11 +96,12 @@
                     </div>
 
                         <div class="row">
-                              <div class="col-md-2 ">
-                        <asp:LinkButton ID="ForgetPassword"  CssClass="forget-button" runat="server" CausesValidation ="false" OnClick="ForgetPassword_Click">ForgetPassword</asp:LinkButton>
+                              <div class="col ">
+                        <asp:LinkButton ID="ForgetPassword" style="padding-left:20px; margin-bottom:30px" CssClass="forget-button" runat="server" CausesValidation ="false" OnClick="ForgetPassword_Click">ForgetPassword</asp:LinkButton>
                                 </div>
                             </div>
 
+                        <br />
                             <div class="row">
 
                                 <div class="col-md-2 mx-auto">
@@ -110,6 +111,7 @@
          
 
                                 </div>
+
 
                                  <div class="col-md-2 mx-auto">
                                                     <asp:LinkButton ID="CreateButton" CssClass="btn btn-outline-danger" runat="server" CausesValidation ="false"  OnClick="CreateButton_Click">Register</asp:LinkButton>

@@ -17,13 +17,13 @@
 
 
         <nav class="navbar navbar-expand-lg navigation">
-            <asp:Image ID="Image1" ImageUrl="~/img/Bookstore.png" CssClass="bookstore-image" runat="server" />
+            <asp:Image ID="Image1" ImageUrl="~/assets/Bookstore.png" CssClass="bookstore-image" runat="server" />
             <asp:Label ID="BookstoreTitle" CssClass="bookstore-title" runat="server" Text="Bookstore"></asp:Label>
 
 
 
             <div class="search">
-                <asp:ImageButton ID="ClickMeButton" runat="server" ImageUrl="~/img/search-icon.png" CssClass="nice-button" />
+                <asp:ImageButton ID="ClickMeButton" runat="server" ImageUrl="~/assets/search-icon.png" CssClass="nice-button" />
                 <asp:TextBox ID="txtDescription" runat="server" CssClass="nice-input" Text="search..."></asp:TextBox>
             </div>
 
@@ -31,7 +31,7 @@
                 <div>
 
                     <asp:LinkButton ID="Cart" runat="server">
-                        <asp:ImageButton ID="CartImage" ImageUrl="~/img/snapcart.png" CssClass="cartimage" runat="server" />
+                        <asp:ImageButton ID="CartImage" ImageUrl="~/assets/snapcart.png" CssClass="cartimage" runat="server" />
                     </asp:LinkButton>
                 </div>
                 <div>
@@ -48,10 +48,10 @@
 
 
 
-                <asp:LinkButton class="nav-link" ID="LinkButton1" CssClass="btn btn-outline-light" Style="height: 35px" runat="server">Login</asp:LinkButton>
+                <asp:LinkButton class="nav-link" ID="LinkButton1" CausesValidation ="false" CssClass="btn btn-outline-light" Style="height: 35px" runat="server" OnClick="LinkButton1_Click">Login</asp:LinkButton>
 
 
-                <asp:LinkButton class="nav-link" ID="LinkButton2" CssClass="btn btn-outline-light" Style="height: 35px" runat="server">Sign Up</asp:LinkButton>
+                <asp:LinkButton class="nav-link" ID="LinkButton2" CausesValidation ="false" CssClass="btn btn-outline-light" Style="height: 35px" runat="server" OnClick="LinkButton2_Click">Sign Up</asp:LinkButton>
 
 
 

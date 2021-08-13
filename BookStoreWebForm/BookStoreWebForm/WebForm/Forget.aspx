@@ -21,7 +21,7 @@
 
             <div class="row">
 
-                <div class="col-md-6 mx-auto">
+                <div class="col-md-4 mx-auto">
 
                     <div class="card" id="card1" visible="true" runat="server">
 
@@ -39,6 +39,8 @@
                             <hr />
 
                             <div style="font-size:20px">Enter the e-mail address associated with your Bookstore account. We will email you instructions to reset your password.</div>
+
+                            <br />
 
                             <div class="row" >
 
@@ -76,7 +78,7 @@
 
                             </div>
 
-                            <div class="row" >
+                            <div class="row row-margin-02" >
 
                                 <div class="col-md-2 mx-auto">
 
