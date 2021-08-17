@@ -76,7 +76,6 @@ namespace BookStoreWebForm.BookStoreApp
                 {
                     value = Convert.ToInt32(plus_minus.Text);
                 }
-
                 value--;
                 bookService.BookQuantityMinus(value, BookId1);
             }
@@ -89,12 +88,10 @@ namespace BookStoreWebForm.BookStoreApp
                     value = 0;
                 }
 
-
                 else
                 {
                     value = Convert.ToInt32(plus_minus.Text);
                 }
-
                 value++;
                 bookService.BookQuantityPlus(value, BookId1);
             }

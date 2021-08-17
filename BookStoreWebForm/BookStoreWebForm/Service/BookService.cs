@@ -84,10 +84,7 @@ namespace BookStoreWebForm.Service
            
             con.Close();
 
-           
         }
-
-
 
         public void BookQuantityMinus(int value, int BookId)
         {
@@ -97,14 +94,11 @@ namespace BookStoreWebForm.Service
             com.Parameters.AddWithValue("@value", value);
             com.Parameters.AddWithValue("@BookId", BookId);
 
-          
-
             con.Open();
             com.ExecuteNonQuery();
           
             con.Close();
-
-            
+ 
         }
     }
 }
