@@ -39,9 +39,7 @@
                     <div class="row">
 
                                 <div class="col-md-2">
-
                                     <asp:Button ID="AddToCart"  runat="server"  Text="ADD TO BAG" CommandName="addToCart" Visible="true" Enabled="true" CssClass="btn btn-danger BagButton"   />
-
                                 </div>
 
                                  <div class="col-md-2">

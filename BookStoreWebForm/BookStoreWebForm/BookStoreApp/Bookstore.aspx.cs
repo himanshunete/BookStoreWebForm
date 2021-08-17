@@ -97,6 +97,7 @@ namespace BookStoreWebForm.BookStoreApp
                 cart.Id = CustomerId;
                 var result = bookService.AddToWishList(cart);
 
+
                 if (result != null && result.Equals(1))
                 {
                     wishlist.Visible = false;
