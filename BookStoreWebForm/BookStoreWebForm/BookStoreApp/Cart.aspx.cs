@@ -73,14 +73,11 @@ namespace BookStoreWebForm.BookStoreApp
                 }
                 else
                 {
-                  
                     value = Convert.ToInt32(plus_minus.Text);
                 }
 
                 value--;
                 bookService.BookQuantityMinus(value, BookId1);
-
-
             }
 
             if (e.CommandName == "plus")
@@ -89,11 +86,10 @@ namespace BookStoreWebForm.BookStoreApp
                 {
                     plus_minus.Text = plus.Text.ToString();
                     value = 0;
-
                 }
+
                 else
                 {
-                   
                     value = Convert.ToInt32(plus_minus.Text);
                 }
 
@@ -102,10 +98,6 @@ namespace BookStoreWebForm.BookStoreApp
             }
 
             plus_minus.Text = value.ToString();
-
-          
-
-
         }
 
     }
