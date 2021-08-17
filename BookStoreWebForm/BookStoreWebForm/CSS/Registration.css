@@ -46,8 +46,7 @@
 }
 
 .bookstore-title {
-    margin-left:10px;
-    margin-top:20px;
+    
     font-size: 20px;
     font-family: Arial;
     color: white;
@@ -55,18 +54,17 @@
 }
 
 .bookstore-image {
-    margin-left: 210px;
-    margin-top: 5px;
     width: 35px;
     height: 30px;
+  
 }
-
+/*
 .navigation {
     display:flex;
     flex-direction:row;
     justify-content:space-evenly;
     padding-left:50px;
-}
+}*/
 
 .nav-link {
     font-family:Arial;
@@ -90,29 +88,29 @@
 }
 */
 .nice-input {
-    padding-left:25px;
+   
     width: 380px;
     height: 25px;
+    padding-left:27px;
 }
 
 .nice-button {
-    position:relative;
+    position: relative;
     height: 15px;
-    top: 3px;
-    left: 30px;
+    top: 6px;
+    left: 20px;
 }
 
 .cartimage {
     width: 21px;
     height: 21px;
-    margin-top:5px;
+  
 }
 
 .wishlistimage {
     width: 21px;
     height: 21px;
-    top: 3px;
-    left:25px;
+    margin-left: 10px;
 }
 
 .cartandwishlist {
@@ -135,7 +133,7 @@
     color: white;
     height: 50px;
     background-color: black;
-    position: absolute;
+    position: relative;
     bottom: 0px;
     width: 100%;
 }
@@ -232,12 +230,12 @@
     font-size: 15px;
 }
 
-@media only screen and (max-width: 1280px) {
+/*@media only screen and (max-width: 1280px) {
     .nice-button {
         top: 25px;
         left: 10px;
         position: relative;
-    }
+    }*/
 
 
     /*.bookstore-title {
@@ -251,7 +249,7 @@
     }*/
 
 
-}
+/*}
 
 @media only screen and (max-width: 991px) {
     .nice-button {
@@ -287,17 +285,18 @@
 
     
 
-}
-
-./*cardFlex {
-    display: flex;
-    justify-content: center;
-}
-
+}*/
+/*
+.cardFlex {
+   width: 18rem;
+   height:405px;
+   margin:15px;
+}*/
+/*
 .cardFlex1 {
     margin:10px;
-}*/
-
+}
+*/
 
     /*.Flex {
         width: 25%;
@@ -312,8 +311,8 @@
         height: 100px;
     }*/
 
-/*
-    .Flex {
+/**/
+    /*.Flex {
         display: flex;
         flex-wrap:wrap;
     }*/
@@ -323,34 +322,85 @@
      
         }*/
 
-    .BagButton {
-        position:absolute; 
-        bottom: 10px; 
-        left:15px; 
-        width:120px;
+    .navigationFlex {
+        width: 100%;
+        background-color: brown;
+        height: 47px;
+        display: flex;
+        justify-content: space-evenly;
     }
 
-.wishListButton {
+.flexLogo {
+    display: flex;
+    justify-content: flex-end;
+    /* left: 85px; */
+    position: relative;
+    flex: auto;
+    margin: 5px;
+    top: -5px;
+}
+
+.flexSearch {
+    display: flex;
+    justify-content: center;
+    flex: auto;
+}
+
+.flexCart {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    top: 2px;
+    flex: auto;
+    right: 148px;
+}
+
+.flexButton {
     position: absolute;
-    bottom: 10px;
-    right: 15px;
-    width: 120px;
+    display: flex;
+    justify-content: flex-end;
+    left: 1300px;
+    top: 6px;
 }
 
-.bookcount {
-    display:flex;
-    justify-content:flex-start;
-    left:190px;
-    top:70px;
-    position:absolute;
-}
 
-.Count {
-    position:absolute;
-    top:10px;
-    left:90px;
-}
-
-    
+.flexNavigate {
+    width: 100%;
+    background-color: brown;
+    height: 47px;
+    display: flex;
+    justify-content: space-evenly;
    
+}
+
+nav {
+    background-color:brown;
+    height:47px;
+    width:100%;
+}
+
+.logo {
+    padding:0 100px;
+}
+
+nav ul {
+    float:right;
+    margin-right:20px;
+}
+
+nav ul li {
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+
+.searchBar {
+    float:right;
+    line-height: 80px;
+    margin-right:40px;
+
+}
+
+
+
 

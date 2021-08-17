@@ -34,6 +34,7 @@ namespace BookStoreWebForm.WebForm
             user.EmailAddress = EmailAddress.Text;
             user.Password = Password.Text;
             var result = login.Login(user);
+           
 
             if (result != null && result.Equals(1))
             {
@@ -45,7 +46,10 @@ namespace BookStoreWebForm.WebForm
             }
             else
             {
+                var record = login.RetrieveRecord(user);
+                Session["CustomerId"] = record;
                 ShowMessage("Login is successful", MessageType.Success);
+                Response.Redirect("https://localhost:44313/BookStoreApp/Bookstore.aspx");
             }
         }
 

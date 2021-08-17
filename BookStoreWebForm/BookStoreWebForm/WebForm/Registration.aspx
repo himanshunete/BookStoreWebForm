@@ -14,8 +14,6 @@
    
   <asp:Label ID="RegistrationMessage" CssClass="alert" runat="server" Text="Hello" Visible="false"></asp:Label>
 
-    <br />
-
     <div class="container">
 
             <div class="row">
@@ -45,7 +43,7 @@
 
                             <div class="row">
 
-                                <div class="col-md-7 col-sm-7">
+                                <div class="col-md-10 col-sm-7">
 
                                 <div class="from-group">
 
@@ -65,7 +63,7 @@
                                 </div>
 
                                 <div class="row">
-                                <div class="col-md-7 col-sm-7">
+                                <div class="col-md-10 col-sm-7">
 
                                 <div class="from-group">
 
@@ -89,7 +87,7 @@
 
                             <div class="row">
 
-                                 <div class="col-md-7 col-sm-7">
+                                 <div class="col-md-10 col-sm-7">
 
                                <div class="form-group">
 
@@ -114,7 +112,7 @@
 
                              <div class="row">
 
-                        <div class="col-md-7  col-sm-7">
+                        <div class="col-md-10  col-sm-7">
 
                          <div class="from-group">
 
@@ -137,7 +135,7 @@
                                  </div>
 
                                  <div class="row">
-                        <div class="col-md-7  col-sm-7">
+                        <div class="col-md-10  col-sm-7">
 
 
 
@@ -179,14 +177,14 @@
 
                             <div class="row">
 
-                                <div class="col-md-2 mx-auto">
+                                <div class="col-md-7 mx-auto">
 
                                     <asp:Button ID="CreateButton" runat="server" Text="Create Account" CssClass="btn btn-outline-danger" OnClick="Button1_Click1"  />
 
                                 </div>
 
                                  <div class="col-md-2 mx-auto">
-                                 <asp:LinkButton ID="Login" CssClass="btn btn-outline-danger" CausesValidation ="false" runat="server" OnClick="Login_Click">Login</asp:LinkButton>
+                                 <asp:LinkButton ID="Login"  CausesValidation ="false" runat="server" OnClick="Login_Click">Login</asp:LinkButton>
                                      </div>
 
                             </div>

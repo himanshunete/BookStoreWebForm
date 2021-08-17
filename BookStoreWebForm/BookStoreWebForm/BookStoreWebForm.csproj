@@ -134,7 +134,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="assets\220px-The_Overstory_%28Powers_novel%29.png" />
+    <Content Include="assets\end-of-watch-mr-mercedes-finders-keepers-it-bill-hodges-trilogy-end-of-watch-png-800_534.png" />
     <Content Include="assets\PNGPIX-COM-Mahendra-Singh-Dhoni-PNG-Image-500x488.png" />
+    <Content Include="assets\run+me+to+earth+by+paul+yoon.png" />
+    <Content Include="BookStoreApp\Bookstore.aspx" />
     <Content Include="BookStore\BookStore.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -142,7 +146,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="CSS\BookStore.css" />
+    <Content Include="CSS\Bookstore.css" />
     <Content Include="CSS\Registration.css" />
     <Content Include="CSS\search-icon.png" />
     <Content Include="Default.aspx" />
@@ -160,7 +164,9 @@
     <Content Include="BookStore.Master" />
     <Content Include="Scripts\WebForms\snackbar.js" />
     <Content Include="Scripts\WebForms\Timer.js" />
+    <Content Include="Scripts\WebForms\ToolTip.js" />
     <Content Include="WebForm\ResetPassword.aspx" />
+    <Content Include="BookstoreHomePage.Master" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="assets\Bookstore.PNG" />
     <Content Include="assets\cart.png" />
@@ -235,6 +241,20 @@
     <Compile Include="BookStore.Master.designer.cs">
       <DependentUpon>BookStore.Master</DependentUpon>
     </Compile>
+    <Compile Include="BookStoreApp\Bookstore.aspx.cs">
+      <DependentUpon>Bookstore.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookStoreApp\Bookstore.aspx.designer.cs">
+      <DependentUpon>Bookstore.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BookstoreHomePage.Master.cs">
+      <DependentUpon>BookstoreHomePage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookstoreHomePage.Master.designer.cs">
+      <DependentUpon>BookstoreHomePage.Master</DependentUpon>
+    </Compile>
     <Compile Include="BookStore\BookStore.aspx.cs">
       <DependentUpon>BookStore.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -259,6 +279,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Model\ResquestModel\Cart.cs" />
     <Compile Include="Model\ResquestModel\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\BookService.cs" />

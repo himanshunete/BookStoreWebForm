@@ -1,11 +1,134 @@
-﻿.navbar-custom {
-    background-color: lightgreen;
+﻿
+.BagButton {
+    position: absolute;
+    bottom: 32px;
+    left: 15px;
+    width: 120px
 }
 
-.footer {
-    bottom: 200px ;
-    font-size:20px;
-    /* Height of the footer*/
-    height: 40px;
-    background-color: black;
+.wishListButton {
+    position: relative;
+    left: 101px;
+    width: 120px;
+    top: -32px;
+}
+
+.AddedToWishList {
+    position: relative;
+    left: 101px;
+    width: 120px;
+    top: -32px;
+}
+
+.AddedToBagButton {
+    position: absolute;
+    top: 332px;
+    width: 256px;
+    height: 39px;
+    left: 15px;
+}
+
+.bookcount {
+    display: flex;
+    justify-content: flex-start;
+    /* left: 190px; */
+    top: 56px;
+    position: absolute;
+    margin-left: 133px;
+}
+
+.Count {
+    position: absolute;
+    top: 10px;
+    left: 90px;
+}
+
+/*Hover*/
+/*.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;*/
+        /* Position the tooltip */
+        /*position: absolute;
+        z-index: 1;
+    }
+
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+    }*/
+
+.tooltip-inner {
+    background-color: #ff0000;
+    box-shadow: 0px 0px 4px black;
+    opacity: 1 !important;
+}
+
+.tooltip.bs-tooltip-right .arrow:before {
+    border-right-color: #ff0000 !important;
+}
+
+.cards {
+    transition: all 0.2s ease;
+    cursor: pointer
+}
+
+    .cards:hover {
+        box-shadow: 5px 6px 6px 2px #e9ecef;
+        transform: scale(1.1)
+    }
+
+.arrangeBook {
+    display: flex;
+    
+}
+
+
+.Flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top:55px;
+}
+
+.cardFlex {
+    margin: 15px;
+    width: 18rem;
+    height:405px;
+}
+
+.BookImage {
+   height: 189px;
+    width: 145px;
+    /* background-color: grey; */
+    position: absolute;
+    top: 16px;
+    left: 75px;
+
+}
+
+.backgroundColor {
+    height: 224px;
+    width: 100%;
+    background-color: #F0F0F0;
+}
+
+.card-price {
+    position: relative;
+    top: -11px;
+    font-weight: bold;
+}
+
+.card-author {
+    margin-top: -10px;
+    color:darkgrey;
 }

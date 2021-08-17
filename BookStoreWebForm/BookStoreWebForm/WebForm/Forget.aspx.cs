@@ -114,11 +114,13 @@ namespace BookStoreWebForm.WebForm
                     Button2.Enabled = false;
                     VerifyButton.Enabled = false;
                     LinkButton1.Enabled = true;
-                }
+                    Response.Redirect("https://localhost:44313/WebForm/ResetPassword.aspx");
+            }
 
                 else
                 {
                 ShowMessage("Incorrect otp, send again", MessageType.Error);
+
                 
                 }
 

@@ -1,0 +1,76 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="BookstoreHomePage.master.cs" Inherits="BookStoreWebForm.BookstoreHomePage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" >
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+         <link  type="text/css" rel="stylesheet" href="../CSS/Registration.css" />
+      <%--  <link  type="text/css" rel="stylesheet" href="../CSS/BookStore.css" />--%>
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+       
+        <div class=" flexNavigate" >
+            
+            
+            <div style="display:flex; margin-top: 9px;
+    margin-left: -88px">
+            <div style="display:flex">
+       <asp:Image ID="Image1" ImageUrl="~/assets/Bookstore.png"  runat="server" CssClass="bookstore-image"/>
+            <asp:Label ID="BookstoreTitle"  runat="server" Text="Bookstore" CssClass="bookstore-title"></asp:Label>
+                </div>
+    
+            <div style="display:flex; margin-left: 50px">
+         <asp:ImageButton ID="ClickMeButton" runat="server" ImageUrl="~/assets/search-icon.png" CssClass="nice-button" />
+                <asp:TextBox ID="txtDescription" runat="server" CssClass="nice-input" Text="search..."></asp:TextBox>
+     
+                </div>
+                </div>
+                
+       <div style="display:flex; margin-top: 6px">
+                
+            <div style="    margin-right: 60px;
+    display: flex;
+    margin-top: 5px; margin-left: 81px">
+                    <asp:LinkButton ID="Cart" runat="server">
+                        <asp:ImageButton ID="CartImage" CssClass="cartimage" ImageUrl="~/assets/snapcart.png"  runat="server" />
+                    </asp:LinkButton>
+               
+
+                    <asp:LinkButton ID="WishList" runat="server" CssClass="wishlistimage" >
+                        <i class="fa fa-heart-o" style="color:white" ></i>
+                    </asp:LinkButton>
+                
+                </div>
+           
+
+      <div style="margin-left: 14px; display:flex">
+                <asp:LinkButton class="nav-link" ID="LinkButton1" CausesValidation ="false" CssClass="btn btn-outline-light" Style="height: 35px" runat="server" >LogIn</asp:LinkButton>
+           <asp:LinkButton class="nav-link" ID="LinkButton2" CausesValidation ="false" CssClass="btn btn-outline-light" Style="height: 35px" runat="server" >SignUp</asp:LinkButton>
+                </div>
+           </div>
+
+
+            
+           </div>
+              
+
+            
+                 
+    
+ 
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+            </asp:ContentPlaceHolder>
+            <div class="footer"> Copyright@2020, Bookstore Private Limited. All Rights Reserved </div>
+       
+    </form>
+</body>
+</html>

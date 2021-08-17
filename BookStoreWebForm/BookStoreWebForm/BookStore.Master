@@ -16,53 +16,25 @@
     <form id="form1" runat="server">
 
 
-        <nav class="navbar navbar-expand-lg navigation">
-            <asp:Image ID="Image1" ImageUrl="~/assets/Bookstore.png" CssClass="bookstore-image" runat="server" />
-            <asp:Label ID="BookstoreTitle" CssClass="bookstore-title" runat="server" Text="Bookstore"></asp:Label>
-
-
-
-            <div class="search">
-                <asp:ImageButton ID="ClickMeButton" runat="server" ImageUrl="~/assets/search-icon.png" CssClass="nice-button" />
-                <asp:TextBox ID="txtDescription" runat="server" CssClass="nice-input" Text="search..."></asp:TextBox>
-            </div>
-
-            <div class="cartandwishlist">
-                <div>
-
-                    <asp:LinkButton ID="Cart" runat="server">
-                        <asp:ImageButton ID="CartImage" ImageUrl="~/assets/snapcart.png" CssClass="cartimage" runat="server" />
-                    </asp:LinkButton>
+        <div style="width: 100%; background-color:brown; height:47px; display:flex; justify-content:space-evenly" >
+            
+            <div class="flexLogo">
+       <asp:Image ID="Image1" ImageUrl="~/assets/Bookstore.png"  runat="server" CssClass="bookstore-image"/>
+            <asp:Label ID="BookstoreTitle"  runat="server" Text="Bookstore" CssClass="bookstore-title"></asp:Label>
                 </div>
-                <div>
 
-                    <asp:LinkButton ID="WishList" runat="server" CssClass="wishlistimage">
-                        <i class="fa fa-heart-o" style="color:white" ></i>
-                    </asp:LinkButton>
-                </div>
-            </div>
+    
 
+       
 
-            <div class="navigation">
-
-
-
-
-                <asp:LinkButton class="nav-link" ID="LinkButton1" CausesValidation ="false" CssClass="btn btn-outline-light" Style="height: 35px" runat="server" OnClick="LinkButton1_Click">Login</asp:LinkButton>
-
-
-                <asp:LinkButton class="nav-link" ID="LinkButton2" CausesValidation ="false" CssClass="btn btn-outline-light" Style="height: 35px" runat="server" OnClick="LinkButton2_Click">Sign Up</asp:LinkButton>
-
-
-
-
+      <div class="flexButton">
+                <asp:LinkButton class="nav-link" ID="LinkButton1" CausesValidation ="false" CssClass="btn btn-outline-light" Style="height: 35px" runat="server" >LogIn</asp:LinkButton>
+           <asp:LinkButton class="nav-link" ID="LinkButton2" CausesValidation ="false" CssClass="btn btn-outline-light" Style="height: 35px" runat="server" >SignIn</asp:LinkButton>
 
 
             </div>
 
-
-
-        </nav>
+             </div>
 
 
 

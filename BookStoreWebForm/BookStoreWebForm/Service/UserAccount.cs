@@ -51,6 +51,22 @@ namespace BookStoreWebForm.Service
             return result;
         }
 
+        public object RetrieveRecord(User user)
+        {
+            SqlCommand com = new SqlCommand("spRetrieveRecord", con);
+            com.CommandType = System.Data.CommandType.StoredProcedure;
+
+            com.Parameters.AddWithValue("@EmailAddress", user.EmailAddress);
+            com.Parameters.AddWithValue("@Password", user.Password);
+
+
+            con.Open();
+            var record = com.ExecuteScalar();
+            
+            con.Close();
+            return record;
+        }
+
         public object Forget(User user)
         {
             SqlCommand com = new SqlCommand("spForget", con);

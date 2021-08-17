@@ -45,7 +45,7 @@
 
                             <div class="row">
 
-                                 <div class="col-md-7 col-sm-7">
+                                 <div class="col-md-8 col-sm-7">
 
                                <div class="form-group">
 
@@ -70,13 +70,13 @@
 
                              <div class="row">
 
-                        <div class="col-md-7  col-sm-7">
+                        <div class="col-md-8  col-sm-7">
 
                          <div class="from-group">
 
                              <label>Password</label>
 
-                             <asp:TextBox ID="Password" runat="server" CssClass="form-control"></asp:TextBox>
+                             <asp:TextBox ID="Password" runat="server" type="password" CssClass="form-control"></asp:TextBox>
                             
                               <asp:RegularExpressionValidator ID="RegularExpressionValidator4" ControlToValidate="Password" runat="server" ErrorMessage="Enter Correct Password" ForeColor="Red" ValidationExpression="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$"></asp:RegularExpressionValidator>
 
@@ -114,7 +114,7 @@
 
 
                                  <div class="col-md-2 mx-auto">
-                                                    <asp:LinkButton ID="CreateButton" CssClass="btn btn-outline-danger" runat="server" CausesValidation ="false"  OnClick="CreateButton_Click">Register</asp:LinkButton>
+                                                    <asp:LinkButton ID="CreateButton" style="position:absolute; left:300px" runat="server" CausesValidation ="false"  OnClick="CreateButton_Click">Register</asp:LinkButton>
                                
                                      </div>
 

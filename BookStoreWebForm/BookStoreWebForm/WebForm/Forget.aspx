@@ -82,7 +82,8 @@
 
                                 <div class="col-md-2 mx-auto">
 
-                                    <asp:Button ID="Login" runat="server" CausesValidation ="false" Text="Login"  CssClass="btn btn-outline-danger" OnClick="Login_Click"  />
+                                      <asp:LinkButton ID="Login"  runat="server" CausesValidation ="false"  >Login</asp:LinkButton>
+                                    
                                    
          
 
