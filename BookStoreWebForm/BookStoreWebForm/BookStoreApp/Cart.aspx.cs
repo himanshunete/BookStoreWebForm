@@ -71,6 +71,7 @@ namespace BookStoreWebForm.BookStoreApp
                     value = 0;
 
                 }
+
                 else
                 {
                     value = Convert.ToInt32(plus_minus.Text);
@@ -87,6 +88,7 @@ namespace BookStoreWebForm.BookStoreApp
                     plus_minus.Text = plus.Text.ToString();
                     value = 0;
                 }
+
 
                 else
                 {

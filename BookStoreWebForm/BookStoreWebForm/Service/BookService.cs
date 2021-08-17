@@ -87,6 +87,8 @@ namespace BookStoreWebForm.Service
            
         }
 
+
+
         public void BookQuantityMinus(int value, int BookId)
         {
             SqlCommand com = new SqlCommand("spBookQuantityMinus", con);
