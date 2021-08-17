@@ -10,12 +10,15 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+
     <div class="bookcount" >
             <asp:Label ID="Book" runat="server" style="font-size:30px" Text="Books"></asp:Label>
             <asp:Label ID="BookCount"  runat="server" style="font-size:15px; position:relative; top:14px " Text="items"></asp:Label>
     </div>
 
     <div  class="Flex" >
+
+
 
     <asp:Repeater ID="RepeatInformation"     runat="server" OnItemCommand="RepeatInformation_ItemCommand">  
         
