@@ -11,128 +11,71 @@
             <link  type="text/css" rel="stylesheet" href="../CSS/Registration.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-          
-
-                <asp:Label ID="LoginMessage" CssClass="alert" runat="server" Text="Hello" Visible="false"></asp:Label>
-
-
     <br />
     <br />
-               <div class="container">
-
-            <div class="row">
-
-                <div class="col-md-4 mx-auto">
-
-                    <div class="card">
-
-                        <div class="card-body">
-
-                            <div class="row">
-
-                                <div class="col">
-
-                                    <h2 class="text-center text-danger">Login</h2>
-
-
-                                   
-
-                                </div>
-
-                            </div>
-
-                            <hr />
-
-                            <div class="row">
-
-                                 <div class="col-md-8 col-sm-7">
-
-                               <div class="form-group">
-
-                                   <label>Email Address</label>
-
-                                   <asp:TextBox ID="EmailAddress" runat="server" CssClass="form-control"></asp:TextBox>
-                                    
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" ControlToValidate="EmailAddress" runat="server" ErrorMessage="Enter Correct Email" ForeColor="Red" ValidationExpression="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"></asp:RegularExpressionValidator>
-
-                               </div>
-
-                     </div>
-                                <div class="col">
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="EmailAddress" runat="server" ErrorMessage="Required Field" ForeColor="Red"></asp:RequiredFieldValidator>
-                                    </div>
-
-                            </div>
-
-
-
-                           <%-- *****************************************--%>
-
-                             <div class="row">
-
-                        <div class="col-md-8  col-sm-7">
-
-                         <div class="from-group">
-
-                             <label>Password</label>
-
-                             <asp:TextBox ID="Password" runat="server" type="password" CssClass="form-control"></asp:TextBox>
-                            
-                              <asp:RegularExpressionValidator ID="RegularExpressionValidator4" ControlToValidate="Password" runat="server" ErrorMessage="Enter Correct Password" ForeColor="Red" ValidationExpression="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$"></asp:RegularExpressionValidator>
-
-
-                         </div>
-
-
-
-                        </div>
-                                 <div class="col">
-                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="Password" runat="server" ErrorMessage="Required Field" ForeColor="Red"></asp:RequiredFieldValidator>
-                                     </div>
-
-                                 </div>
-   
-
-                    </div>
+    <div class="container">
+        <div class="row" style="margin-top: 67px">
+            <div class="col-md-4 mx-auto">
+                <div class="card">
+                    <div class="card-body">
 
                         <div class="row">
-                              <div class="col ">
-                        <asp:LinkButton ID="ForgetPassword" style="padding-left:20px; margin-bottom:30px" CssClass="forget-button" runat="server" CausesValidation ="false" OnClick="ForgetPassword_Click">ForgetPassword</asp:LinkButton>
+                            <div class="col">
+                                <h2 class="text-center text-danger">Login</h2>
+                            </div>
+                        </div>
+                        <hr />
+
+                        <div class="row">
+                            <div class="col-md-9 col-sm-7">
+                                <div class="form-group">
+                                    <label>Email Address</label>
+                                    <asp:TextBox ID="EmailAddress" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" ControlToValidate="EmailAddress" runat="server" ErrorMessage="Enter Correct Email" ForeColor="Red" ValidationExpression="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"></asp:RegularExpressionValidator>
                                 </div>
                             </div>
+                            <div class="col">
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="EmailAddress" runat="server" ErrorMessage="Required Field" ForeColor="Red"></asp:RequiredFieldValidator>
+                            </div>
+                        </div>
 
-                        <br />
-                            <div class="row">
+                        <%-- *****************************************--%>
 
-                                <div class="col-md-2 mx-auto">
-
-                                    <asp:Button ID="LoginButton" runat="server" Text="Login" OnClick="LoginButton_Click" CssClass="btn btn-outline-danger"  />
-                                   
-         
-
+                        <div class="row">
+                            <div class="col-md-9  col-sm-7">
+                                <div class="from-group">
+                                    <label>Password</label>
+                                    <asp:TextBox ID="Password" runat="server" type="password" CssClass="form-control"></asp:TextBox>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" ControlToValidate="Password" runat="server" ErrorMessage="Enter Correct Password" ForeColor="Red" ValidationExpression="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$"></asp:RegularExpressionValidator>
                                 </div>
 
-
-                                 <div class="col-md-2 mx-auto">
-                                                    <asp:LinkButton ID="CreateButton" style="position:absolute; left:300px" runat="server" CausesValidation ="false"  OnClick="CreateButton_Click">Register</asp:LinkButton>
-                               
-                                     </div>
-
                             </div>
-
-                        <br />
+                            <div class="col">
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="Password" runat="server" ErrorMessage="Required Field" ForeColor="Red"></asp:RequiredFieldValidator>
+                            </div>
+                        </div>
 
                     </div>
 
+                    <div class="row">
+                        <div class="col ">
+                            <asp:LinkButton ID="ForgetPassword" Style="padding-left: 20px; margin-bottom: 30px" CssClass="forget-button" runat="server" CausesValidation="false" OnClick="ForgetPassword_Click">ForgetPassword</asp:LinkButton>
+                        </div>
+                    </div>
+                    <br />
+
+                    <div class="row">
+                        <div class="col-md-2 mx-auto">
+                            <asp:Button ID="LoginButton" runat="server" Text="Login" OnClick="LoginButton_Click" CssClass="btn btn-outline-danger" />
+                        </div>
+
+                        <div class="col-md-2 mx-auto">
+                            <asp:LinkButton ID="CreateButton" Style="position: absolute; left: 300px" runat="server" CausesValidation="false" OnClick="CreateButton_Click">Register</asp:LinkButton>
+                        </div>
+                    </div>
+                    <br />
                 </div>
-
             </div>
-
         </div>
-
-    
-       <div class="messagealert" id="alert_container">
-            </div>
-         
-        
+    </div>
 </asp:Content>

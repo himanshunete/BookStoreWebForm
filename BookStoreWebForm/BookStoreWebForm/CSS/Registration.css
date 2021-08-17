@@ -138,6 +138,19 @@
     width: 100%;
 }
 
+.footer1 {
+    padding-left: 200px;
+    padding-top: 13px;
+    /* margin-top: 10px; */
+    font-size: 15px;
+    color: white;
+    height: 50px;
+    background-color: black;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+
 .last-row {
     display: flex;
     flex-direction: row;

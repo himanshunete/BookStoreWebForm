@@ -7,9 +7,9 @@
     <script  src="../Scripts/WebForms/snack.js" type="text/javascript"></script>
     <link  type="text/css" rel="stylesheet" href="../CSS/Bookstore.css" />
     <link  type="text/css" rel="stylesheet" href="../CSS/Registration.css" />
+     <script  src="../Scripts/WebForms/snackbar.js" type="text/javascript" ></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
 
     <div class="bookcount" >
             <asp:Label ID="Book" runat="server" style="font-size:30px" Text="Books"></asp:Label>
@@ -17,15 +17,10 @@
     </div>
 
     <div  class="Flex" >
-
-
-
     <asp:Repeater ID="RepeatInformation"     runat="server" OnItemCommand="RepeatInformation_ItemCommand">  
-        
            <ItemTemplate> 
-               
-              
-                <div class="card cardFlex"  >
+
+                <div class="card cardFlex cards" <%--data-toggle="tooltip" data-placement="right" data-container="body"--%> data-mdb-toggle="tooltip hover" title="<%#DataBinder.Eval(Container,"DataItem.Description")%>" >
                     <div class="backgroundColor">
                      <asp:Image ID="Image1" ImageUrl="~/assets/220px-The_Overstory_(Powers_novel).png" CssClass="BookImage" runat="server" />
                         </div>
@@ -34,10 +29,8 @@
     <h5 class="card-title" ><%#DataBinder.Eval(Container,"DataItem.Name")%></h5>
     <p class="card-author" ><%#DataBinder.Eval(Container,"DataItem.AuthorName")%></p>
     <p class="card-price" >Rs. <%#DataBinder.Eval(Container,"DataItem.Price")%></p>
-  </div>
-                     
+  </div>  
                     <div class="row">
-
                                 <div class="col-md-2">
                                     <asp:Button ID="AddToCart"  runat="server"  Text="ADD TO BAG" CommandName="addToCart" Visible="true" Enabled="true" CssClass="btn btn-danger BagButton"   />
                                 </div>
@@ -46,28 +39,13 @@
                                   <asp:Button ID="WishList" runat="server" Text="WISHLIST" CommandName="wishList" Visible="true" Enabled="true" CssClass="btn btn-outline-dark wishListButton"  />
                                       <asp:Button ID="AddedToWishList" runat="server" Text="WISHLISTED" CommandName="wishListed" Visible="false" Enabled="false" CssClass="btn btn-outline-dark AddedToWishList"  />
                                      </div>
-
                             </div>
 
                     <asp:Button ID="AddedToCart" runat="server" Text="ADDED TO BAG" CommandName="addedToCart" Visible="false" Enabled="false"     CssClass="btn btn-primary AddedToBagButton"  />
                     
-                    </div>
-
-
-
-
-                 
-
-                     
+                    </div>   
             </ItemTemplate> 
-         
-         
-           
-          
          </asp:Repeater>
 
         </div>
-
-
-
 </asp:Content>

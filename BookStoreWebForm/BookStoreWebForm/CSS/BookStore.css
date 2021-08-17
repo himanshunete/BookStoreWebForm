@@ -83,8 +83,8 @@
 }
 
     .cards:hover {
-        box-shadow: 5px 6px 6px 2px #e9ecef;
-        transform: scale(1.1)
+        box-shadow: 1px 2px 3px 4px #e9ecef;
+        transform: scale(1.0)
     }
 
 .arrangeBook {
@@ -100,6 +100,12 @@
     margin-top:55px;
 }
 
+.Flex1 {
+    display: flex;
+    flex-direction:column;
+    justify-content: flex-start;
+    margin-top: 55px;
+}
 .cardFlex {
     margin: 15px;
     width: 18rem;
@@ -132,3 +138,24 @@
     margin-top: -10px;
     color:darkgrey;
 }
+
+.hover {
+    background-color:aliceblue;
+}
+/*
+.card1 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+
+.card-body1 {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+}*/

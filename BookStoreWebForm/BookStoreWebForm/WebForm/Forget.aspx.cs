@@ -113,7 +113,6 @@ namespace BookStoreWebForm.WebForm
                     Four.Enabled = false;
                     Button2.Enabled = false;
                     VerifyButton.Enabled = false;
-                    LinkButton1.Enabled = true;
                     Response.Redirect("https://localhost:44313/WebForm/ResetPassword.aspx");
             }
 

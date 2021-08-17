@@ -13,5 +13,20 @@ namespace BookStoreWebForm
         {
 
         }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("https://localhost:44313/WebForm/Login.aspx");
+        }
+
+        protected void LinkButton2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("https://localhost:44313/WebForm/Registration.aspx");
+        }
+
+        protected void LinkButton3_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("https://localhost:44313/BookStoreApp/Cart.aspx");
+        }
     }
 }

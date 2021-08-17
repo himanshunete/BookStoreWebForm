@@ -18,7 +18,7 @@ namespace BookStoreWebForm.BookStoreApp
         public static readonly string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
         SqlConnection con = new SqlConnection(strcon);
         BookService bookService = new BookService();
-        Cart cart = new Cart();
+        Bag bag = new Bag();
 
         public enum MessageType { Success, Error, Info, Warning };
 
@@ -55,58 +55,70 @@ namespace BookStoreWebForm.BookStoreApp
 
         protected void RepeatInformation_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            int CustomerId = (int)Session["CustomerId"];
-            if (e.CommandName == "addToCart")
-            {
-                Button addToCart = e.Item.FindControl("AddToCart") as Button;
-                Button wishlist = e.Item.FindControl("WishList") as Button;
-                Button wishlisted = e.Item.FindControl("AddedToWishList") as Button;
-                Button addedToCart = e.Item.FindControl("AddedToCart") as Button;
-                int BookId = int.Parse((e.Item.FindControl("BookId") as Label).Text);
+            Button addToCart1 = e.Item.FindControl("AddToCart") as Button;
+            Button wishlist1 = e.Item.FindControl("WishList") as Button;
+            Button wishlisted1 = e.Item.FindControl("AddedToWishList") as Button;
+            Button addedToCart1 = e.Item.FindControl("AddedToCart") as Button;
+            int BookId1 = int.Parse((e.Item.FindControl("BookId") as Label).Text);
+            Session["BookId"] = BookId1; 
+            
+            if (Session["CustomerId"] == null){
 
-                cart.BookId = BookId;
-                cart.Id = CustomerId;
-                var result = bookService.AddToCart(cart);
-
-                if (result != null && result.Equals(1))
-                {
-                    addToCart.Visible = false;
-                    wishlist.Visible = false;
-                    addToCart.Enabled = false;
-                    wishlist.Enabled = false;
-                    addedToCart.Visible = true;
-                    addedToCart.Enabled = false;
-                    ShowMessage("Book is added to cart", MessageType.Success);
-                }
-
-                if (result != null && result.Equals(2))
-                {
-                    ShowMessage("Book is out of stock", MessageType.Warning);
-                }
+                ShowMessage("First Login, and then proceed to buy books", MessageType.Success);
             }
 
-            if (e.CommandName == "wishList")
+            else
             {
-                Button addToCart = e.Item.FindControl("AddToCart") as Button;
-                Button wishlist = e.Item.FindControl("WishList") as Button;
-                Button wishlisted = e.Item.FindControl("AddedToWishList") as Button;
-                Button addedToCart = e.Item.FindControl("AddedToCart") as Button;
-                int BookId = int.Parse((e.Item.FindControl("BookId") as Label).Text);
-
-                cart.BookId = BookId;
-                cart.Id = CustomerId;
-                var result = bookService.AddToWishList(cart);
-
-
-                if (result != null && result.Equals(1))
+                int CustomerId = (int)Session["CustomerId"];
+                if (e.CommandName == "addToCart")
                 {
-                    wishlist.Visible = false;
-                    wishlist.Enabled = false;
-                    wishlisted.Visible = true;
-                    wishlisted.Enabled = true;
-                    ShowMessage("Book is added to wishlist", MessageType.Success);
+                    Button addToCart = e.Item.FindControl("AddToCart") as Button;
+                    Button wishlist = e.Item.FindControl("WishList") as Button;
+                    Button wishlisted = e.Item.FindControl("AddedToWishList") as Button;
+                    Button addedToCart = e.Item.FindControl("AddedToCart") as Button;
+                    int BookId = int.Parse((e.Item.FindControl("BookId") as Label).Text);
+
+                    bag.BookId = BookId;
+                    bag.Id = CustomerId;
+                    var result = bookService.AddToCart(bag);
+
+                    if (result != null && result.Equals(1))
+                    {
+                        addToCart.Visible = false;
+                        wishlist.Visible = false;
+                        addedToCart.Visible = true;
+                        wishlisted.Visible = false;
+                        ShowMessage("Book is added to cart", MessageType.Success);
+                    }
+
+                    if (result != null && result.Equals(2))
+                    {
+                        ShowMessage("Book is out of stock", MessageType.Warning);
+                    }
                 }
 
+                if (e.CommandName == "wishList")
+                {
+                    Button addToCart = e.Item.FindControl("AddToCart") as Button;
+                    Button wishlist = e.Item.FindControl("WishList") as Button;
+                    Button wishlisted = e.Item.FindControl("AddedToWishList") as Button;
+                    Button addedToCart = e.Item.FindControl("AddedToCart") as Button;
+                    int BookId = int.Parse((e.Item.FindControl("BookId") as Label).Text);
+
+                    bag.BookId = BookId;
+                    bag.Id = CustomerId;
+                    var result = bookService.AddToWishList(bag);
+
+                    if (result != null && result.Equals(1))
+                    {
+                        wishlist.Visible = false;
+                        wishlist.Enabled = false;
+                        wishlisted.Visible = true;
+                        wishlisted.Enabled = true;
+                        ShowMessage("Book is added to wishlist", MessageType.Success);
+                    }
+
+                }
             }
         }
     }

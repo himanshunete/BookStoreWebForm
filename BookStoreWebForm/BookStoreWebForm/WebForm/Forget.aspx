@@ -19,7 +19,7 @@
     <br />
     <div class="container">
 
-            <div class="row">
+            <div class="row" style="margin-top:60px">
 
                 <div class="col-md-4 mx-auto">
 
@@ -44,7 +44,7 @@
 
                             <div class="row" >
 
-                                 <div class="col-md-7 col-sm-7">
+                                 <div class="col-md-9 col-sm-7">
 
                                <div class="form-group">
 
@@ -66,9 +66,10 @@
 
                             <div class="row" >
 
-                                <div class="col-md-2 mx-auto">
+                                <div class="col" style="display:flex; justify-content:space-evenly;     margin-top: 13px;">
 
                                     <asp:Button ID="SubmitButton" runat="server" Text="Send" OnClick="SubmitButton_Click" CssClass="btn btn-outline-danger"  />
+                                      <asp:LinkButton ID="Login"  runat="server" style="position: relative;top: 4px;" CausesValidation ="false"  OnClick="Login_Click" >Login</asp:LinkButton>
                                    
          
 
@@ -78,20 +79,14 @@
 
                             </div>
 
-                            <div class="row row-margin-02" >
+                           
 
-                                <div class="col-md-2 mx-auto">
-
-                                      <asp:LinkButton ID="Login"  runat="server" CausesValidation ="false"  >Login</asp:LinkButton>
+                                    
                                     
                                    
          
 
-                                </div>
-
-                                 
-
-                            </div>
+                              
 
 
                            <%-- *****************************************--%>
@@ -174,16 +169,7 @@
 
                         <br />
 
-                             <div class="row row-margin-05">
-                                <br />
-
-                            <div class="col " id="reset" runat="server">
-                                  
-                                     <asp:LinkButton ID="LinkButton1" Enabled="false" style="font-size:17px" runat="server"  CausesValidation ="false" OnClick="ResetButton_Click" >Reset Password</asp:LinkButton>
-
-                                </div>
-
-                                 </div>
+                             
 
                     </div>
 

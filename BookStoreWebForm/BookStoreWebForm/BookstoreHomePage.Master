@@ -38,7 +38,7 @@
             <div style="    margin-right: 60px;
     display: flex;
     margin-top: 5px; margin-left: 81px">
-                    <asp:LinkButton ID="Cart" runat="server">
+                    <asp:LinkButton ID="Cart" runat="server" OnClick="LinkButton3_Click">
                         <asp:ImageButton ID="CartImage" CssClass="cartimage" ImageUrl="~/assets/snapcart.png"  runat="server" />
                     </asp:LinkButton>
                
@@ -51,8 +51,8 @@
            
 
       <div style="margin-left: 14px; display:flex">
-                <asp:LinkButton class="nav-link" ID="LinkButton1" CausesValidation ="false" CssClass="btn btn-outline-light" Style="height: 35px" runat="server" >LogIn</asp:LinkButton>
-           <asp:LinkButton class="nav-link" ID="LinkButton2" CausesValidation ="false" CssClass="btn btn-outline-light" Style="height: 35px" runat="server" >SignUp</asp:LinkButton>
+                <asp:LinkButton class="nav-link" ID="LinkButton1" CausesValidation ="false" CssClass="btn btn-outline-light" Style="height: 35px" runat="server" OnClick="LinkButton1_Click" >LogIn</asp:LinkButton>
+           <asp:LinkButton class="nav-link" ID="LinkButton2" CausesValidation ="false" CssClass="btn btn-outline-light" Style="height: 35px" runat="server" OnClick="LinkButton2_Click" >SignUp</asp:LinkButton>
                 </div>
            </div>
 

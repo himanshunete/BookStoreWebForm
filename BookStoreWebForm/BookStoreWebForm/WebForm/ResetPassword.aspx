@@ -16,7 +16,7 @@
     <br />
          <div class="container">
 
-            <div class="row">
+            <div class="row" style="margin-top:60px" >
 
                 <div class="col-md-4 mx-auto">
 
@@ -47,13 +47,13 @@
 
                              <div class="row">
 
-                        <div class="col-md-7  col-sm-7">
+                        <div class="col-md-9  col-sm-7">
 
                          <div class="from-group">
 
                              <label>New Password</label>
 
-                             <asp:TextBox ID="NewPassword" runat="server" CssClass="form-control"></asp:TextBox>
+                             <asp:TextBox ID="NewPassword" runat="server" type="password" CssClass="form-control"></asp:TextBox>
                             
                               <asp:RegularExpressionValidator ID="RegularExpressionValidator4" ControlToValidate="NewPassword" runat="server" ErrorMessage="Enter Correct Password" ForeColor="Red" ValidationExpression="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$"></asp:RegularExpressionValidator>
 
@@ -72,13 +72,13 @@
 
                             <div class="row">
 
-                        <div class="col-md-7  col-sm-7">
+                        <div class="col-md-9  col-sm-7">
 
                          <div class="from-group">
 
                              <label>Confirm Password</label>
 
-                             <asp:TextBox ID="ConfirmPassword" runat="server" CssClass="form-control"></asp:TextBox>
+                             <asp:TextBox ID="ConfirmPassword" runat="server" type="password" CssClass="form-control"></asp:TextBox>
                             
                               <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ControlToValidate="ConfirmPassword" runat="server" ErrorMessage="Enter Correct Password" ForeColor="Red" ValidationExpression="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$"></asp:RegularExpressionValidator>
 
@@ -97,9 +97,11 @@
 
                     </div>
 
+                        <div class="row" style="position: relative;    left: 14px;bottom: 3px;">
                           <asp:CompareValidator ID="CompareValidator1" runat="server" 
         ControlToCompare="NewPassword" ControlToValidate="ConfirmPassword" ErrorMessage="Password mismatch">
     </asp:CompareValidator>
+                        </div>
                         
 
                             <div class="row">

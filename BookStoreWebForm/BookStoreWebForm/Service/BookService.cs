@@ -14,7 +14,7 @@ namespace BookStoreWebForm.Service
         //create new sqlconnection and connection to database by using connection string from web.config file  
         public static readonly string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
         SqlConnection con = new SqlConnection(strcon);
-        Cart cart = new Cart();
+        Bag bag = new Bag();
 
         public object DisplayBookCount()
         {
@@ -33,14 +33,14 @@ namespace BookStoreWebForm.Service
             return result;
         }
 
-        public object AddToCart(Cart cart)
+        public object AddToCart(Bag bag)
         {
 
             SqlCommand com = new SqlCommand("spAddToCart", con);
             com.CommandType = System.Data.CommandType.StoredProcedure;
 
-            com.Parameters.AddWithValue("@BookId", cart.BookId);
-            com.Parameters.AddWithValue("@Id", cart.Id);
+            com.Parameters.AddWithValue("@BookId", bag.BookId);
+            com.Parameters.AddWithValue("@Id", bag.Id);
             var ReturnParameter = com.Parameters.Add("@Result", SqlDbType.Int);
             ReturnParameter.Direction = ParameterDirection.ReturnValue;
 
@@ -52,13 +52,13 @@ namespace BookStoreWebForm.Service
             return result;
         }
 
-        public object AddToWishList(Cart cart)
+        public object AddToWishList(Bag bag)
         {
             SqlCommand com = new SqlCommand("spAddToWishList", con);
             com.CommandType = System.Data.CommandType.StoredProcedure;
 
-            com.Parameters.AddWithValue("@BookId", cart.BookId);
-            com.Parameters.AddWithValue("@Id", cart.Id);
+            com.Parameters.AddWithValue("@BookId", bag.BookId);
+            com.Parameters.AddWithValue("@Id", bag.Id);
             var ReturnParameter = com.Parameters.Add("@Result", SqlDbType.Int);
             ReturnParameter.Direction = ParameterDirection.ReturnValue;
 
@@ -68,6 +68,41 @@ namespace BookStoreWebForm.Service
             con.Close();
 
             return result;
+        }
+
+        public void BookQuantityPlus(int value, int BookId)
+        {
+            SqlCommand com = new SqlCommand("spBookQuantityPlus", con);
+            com.CommandType = System.Data.CommandType.StoredProcedure;
+
+            com.Parameters.AddWithValue("@value", value);
+            com.Parameters.AddWithValue("@BookId", BookId);
+
+           
+            con.Open();
+            com.ExecuteNonQuery();
+           
+            con.Close();
+
+           
+        }
+
+        public void BookQuantityMinus(int value, int BookId)
+        {
+            SqlCommand com = new SqlCommand("spBookQuantityMinus", con);
+            com.CommandType = System.Data.CommandType.StoredProcedure;
+
+            com.Parameters.AddWithValue("@value", value);
+            com.Parameters.AddWithValue("@BookId", BookId);
+
+          
+
+            con.Open();
+            com.ExecuteNonQuery();
+          
+            con.Close();
+
+            
         }
     }
 }
