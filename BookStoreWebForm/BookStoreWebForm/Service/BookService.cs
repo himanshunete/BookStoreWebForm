@@ -98,7 +98,27 @@ namespace BookStoreWebForm.Service
             com.ExecuteNonQuery();
           
             con.Close();
- 
+
+       
+        }
+
+        public int RemoveBookFromCart(int CartId)
+        {
+            SqlCommand com = new SqlCommand("spRemoveBookFromCart", con);
+            com.CommandType = System.Data.CommandType.StoredProcedure;
+
+            com.Parameters.AddWithValue("@CartId", CartId);
+            var ReturnParameter = com.Parameters.Add("@Result", SqlDbType.Int);
+            ReturnParameter.Direction = ParameterDirection.ReturnValue;
+
+            con.Open();
+            com.ExecuteNonQuery();
+            int result = (int)ReturnParameter.Value;
+            con.Close();
+
+            return result;
+
+
         }
     }
 }

@@ -60,7 +60,28 @@ namespace BookStoreWebForm.BookStoreApp
             TextBox plus_minus = e.Item.FindControl("TextBox1") as TextBox;
             Button minus = e.Item.FindControl("Minus") as Button;
             Button plus = e.Item.FindControl("Plus") as Button;
+            Button removeBookFromCart = e.Item.FindControl("Remove") as Button;
             int BookId1 = int.Parse((e.Item.FindControl("BookId") as Label).Text);
+            int CartId = int.Parse((e.Item.FindControl("CartId") as Label).Text);
+
+            if (e.CommandName == "removeBookFromCart")
+            {
+               int result = bookService.RemoveBookFromCart(CartId);
+
+                if (result != null && result.Equals(1))
+                {
+                    ShowMessage("Book is removed from cart", MessageType.Success);
+                    Response.Redirect("https://localhost:44313/BookStoreApp/Cart.aspx");
+                }
+
+                if (result != null && result.Equals(2))
+                {
+                    ShowMessage("Book doesnt exist in a cart", MessageType.Error);
+                
+                }
+
+
+            }
 
 
             if (e.CommandName == "minus")

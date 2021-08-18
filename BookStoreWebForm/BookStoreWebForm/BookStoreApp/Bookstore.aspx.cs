@@ -48,6 +48,8 @@ namespace BookStoreWebForm.BookStoreApp
 
                 var count = bookService.DisplayBookCount();
                 BookCount.Text = "(" + count.ToString() + " items"+ ")";
+
+
             }
 
 
@@ -57,11 +59,14 @@ namespace BookStoreWebForm.BookStoreApp
         {
             Button addToCart1 = e.Item.FindControl("AddToCart") as Button;
             Button wishlist1 = e.Item.FindControl("WishList") as Button;
+            Button wishlist2 = e.Item.FindControl("WishList1") as Button;
             Button wishlisted1 = e.Item.FindControl("AddedToWishList") as Button;
             Button addedToCart1 = e.Item.FindControl("AddedToCart") as Button;
             int BookId1 = int.Parse((e.Item.FindControl("BookId") as Label).Text);
+            bool stock = (e.Item.FindControl("Stock") as Label).Visible;
+
             Session["BookId"] = BookId1; 
-            
+          
             if (Session["CustomerId"] == null){
 
                 ShowMessage("First Login, and then proceed to buy books", MessageType.Success);
@@ -119,6 +124,15 @@ namespace BookStoreWebForm.BookStoreApp
                     }
 
                 }
+            }
+
+            if (stock == false)
+            {
+                wishlist2.Visible = true;
+                wishlist2.Enabled = true;
+                wishlist1.Visible = false;
+                addToCart1.Visible = false;
+
             }
         }
     }

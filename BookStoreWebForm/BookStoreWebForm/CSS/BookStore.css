@@ -113,19 +113,23 @@
 }
 
 .BookImage {
-   height: 189px;
+    height: 139px;
     width: 145px;
     /* background-color: grey; */
     position: absolute;
     top: 16px;
     left: 75px;
-
 }
 
 .backgroundColor {
     height: 224px;
     width: 100%;
     background-color: #F0F0F0;
+}
+
+.backgroundColor1 {
+    height: 224px;
+    width: 26%;
 }
 
 .card-price {
@@ -159,3 +163,36 @@
     flex: 1 1 auto;
     padding: 1rem 1rem;
 }*/
+
+.BookImage1 {
+    height: 109px;
+    width: 145px;
+    /* background-color: grey; */
+    position: absolute;
+    top: 17px;
+    left: 25px;
+}
+
+.cardFlex1 {
+    margin: 15px;
+    width: 36rem;
+    height: 152px;
+}
+
+.stock {
+    position: relative;
+    bottom: 347px;
+    left: 39px;
+    font-size: x-large;
+    color: white;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 7px;
+    padding-bottom: 6px;
+   
+}
+
+.other {
+    background-color: white;
+    color: black;
+}

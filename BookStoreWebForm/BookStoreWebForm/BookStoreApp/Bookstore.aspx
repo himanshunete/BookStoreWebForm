@@ -23,6 +23,8 @@
                 <div class="card cardFlex cards" <%--data-toggle="tooltip" data-placement="right" data-container="body"--%> data-mdb-toggle="tooltip hover" title="<%#DataBinder.Eval(Container,"DataItem.Description")%>" >
                     <div class="backgroundColor">
                      <asp:Image ID="Image1" ImageUrl="~/assets/220px-The_Overstory_(Powers_novel).png" CssClass="BookImage" runat="server" />
+                        <asp:Label ID="Stock" runat="server" Text="OUT OF STOCK" CssClass="stock other"
+                     Visible='<%# Convert.ToInt32(DataBinder.Eval(Container,"DataItem.Count")) <= 0 ? true : false %>'  ></asp:Label>
                         </div>
                      <asp:Label ID="BookId" runat="server" Text='<%#DataBinder.Eval(Container,"DataItem.BookId")%>' Visible = "false" />
   <div class="card-body ">
@@ -30,6 +32,7 @@
     <p class="card-author" ><%#DataBinder.Eval(Container,"DataItem.AuthorName")%></p>
     <p class="card-price" >Rs. <%#DataBinder.Eval(Container,"DataItem.Price")%></p>
   </div>  
+                      
                     <div class="row">
                                 <div class="col-md-2">
                                     <asp:Button ID="AddToCart"  runat="server"  Text="ADD TO BAG" CommandName="addToCart" Visible="true" Enabled="true" CssClass="btn btn-danger BagButton"   />
@@ -37,6 +40,7 @@
 
                                  <div class="col-md-2">
                                   <asp:Button ID="WishList" runat="server" Text="WISHLIST" CommandName="wishList" Visible="true" Enabled="true" CssClass="btn btn-outline-dark wishListButton"  />
+                                        <asp:Button ID="WishList1" runat="server" Text="WISHLIST" CommandName="wishList1" Visible="false" Enabled="false" style="    width: 197px; position: relative;    left: -5px;" CssClass="btn btn-outline-dark wishListButton"  />
                                       <asp:Button ID="AddedToWishList" runat="server" Text="WISHLISTED" CommandName="wishListed" Visible="false" Enabled="false" CssClass="btn btn-outline-dark AddedToWishList"  />
                                      </div>
                             </div>
