@@ -122,81 +122,122 @@
 
                             <div class="col-md-5 col-sm-7">
                                 <div class="from-group">
-                                    <asp:TextBox ID="FirstName" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:TextBox ID="FirstName" placeholder="Name" runat="server" CssClass="form-control"></asp:TextBox>
                                  
                                 </div>
                             </div>
                             <div class="col-md-5 col-sm-7" style="margin-left: 10px;">
                                 <div class="from-group">
-                                    <asp:TextBox ID="PhoneNumber" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:TextBox ID="PhoneNumber" placeholder="Phone number" runat="server" CssClass="form-control"></asp:TextBox>
                                 </div>
                             </div>
 
                             
                         </div>
 
-                        <div style="display:flex">
+                        <div style="display:flex ; display: flex;
+    margin-top: 10px;">
 
                             <div class="col-md-5 col-sm-7">
                                 <div class="from-group">
-                                    <asp:TextBox ID="PinCode" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:TextBox ID="PinCode" placeholder="Pincode"  runat="server" CssClass="form-control"></asp:TextBox>
                                  
                                 </div>
                             </div>
                             <div class="col-md-5 col-sm-7" style="margin-left: 10px;">
                                 <div class="from-group">
-                                    <asp:TextBox ID="Locality" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:TextBox ID="Locality" placeholder="Locality" runat="server" CssClass="form-control"></asp:TextBox>
                                 </div>
                             </div>
 
                             
                         </div>
                         <%--  *************************************--%>
-                        <div style="display:flex">
+                        <div style="display:flex; display: flex;
+    margin-top: 10px;">
 
-                            <div class="col-md-5 col-sm-7">
+                            <div class="col-md-1 col-sm-7">
                                 <div class="from-group">
-                                    <asp:TextBox ID="Address" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:TextBox ID="Address" placeholder="Address" style="height: 83px; width: 512px;" runat="server" CssClass="form-control"></asp:TextBox>
                                  
                                 </div>
                             </div>
                             
                         </div>
                         <%-- *****************************************--%>
-                        <div style="display:flex">
+                        <div style="display:flex; display: flex;
+    margin-top: 10px;">
 
                             <div class="col-md-5 col-sm-7">
                                 <div class="from-group">
-                                    <asp:TextBox ID="City" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:TextBox ID="City" placeholder="city/town"  runat="server" CssClass="form-control"></asp:TextBox>
                                  
                                 </div>
                             </div>
                             <div class="col-md-5 col-sm-7" style="margin-left: 10px;">
                                 <div class="from-group">
-                                    <asp:TextBox ID="Town" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:TextBox ID="Landmark" placeholder="Landmark" runat="server" CssClass="form-control"></asp:TextBox>
                                 </div>
                             </div>
 
                             
                         </div>
 
-                        <div class="row">
-                            <div class="col-md-10  col-sm-7">
-                                <div class="from-group">
-                                    <label>Confirm Password</label>
-                                    &nbsp;<asp:TextBox ID="ConfirmPassword" type="password" runat="server" CssClass="form-control"></asp:TextBox>
+                        <div style="display:flex; display: flex;
+    margin-top: 14px;">
+
+                          
+                                     <asp:Label ID="Type" runat="server" Text="Type"></asp:Label>
+                                 
                                 </div>
+                           
+                         
 
+                            
+                        
+
+                        <div style="display:flex; display: flex;
+    margin-top: 10px;">
+
+                            <div class="col-md-5 col-sm-7">
+                                <div class="from-group">
+                                    <asp:RadioButton ID="RadioButton1" runat="server" />
+                                 
+                                </div>
                             </div>
-                            <div class="col">
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" ControlToValidate="ConfirmPassword" runat="server" ErrorMessage="Required Field" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <div class="col-md-5 col-sm-7">
+                                <div class="from-group">
+                                    <asp:Label ID="Label4" style="    position: relative; right: 215px;" runat ="server" Text="Home"></asp:Label>
+                                 
+                                </div>
                             </div>
+                            <div class="col-md-5 col-sm-7" style="margin-left: 10px;">
+                                <div class="from-group">
+                                 <asp:RadioButton ID="RadioButton2"  style =" position: relative; right: 200px;" runat="server" />
+                                </div>
+                            </div>
+                            <div class="col-md-5 col-sm-7">
+                                <div class="from-group">
+                                    <asp:Label ID="Label5" runat="server" Text="Work" style =" position: relative; right: 529px;" ></asp:Label>
+                                 
+                                </div>
+                            </div>
+                            <div class="col-md-5 col-sm-7" style="margin-left: 10px;">
+                                <div class="from-group">
+                                 <asp:RadioButton ID="RadioButton3" style="position: relative; right: 432px" runat="server" />
+                                </div>
+                            </div>
+                            <div class="col-md-5 col-sm-7">
+                                <div class="from-group">
+                                     <asp:Label ID="Label6" runat="server" style="position: relative; right: 877px"  Text="Other"></asp:Label>
+                                 
+                                </div>
+                            </div>
+
+                            
                         </div>
 
-                        <div class="row">
-                            <asp:CompareValidator ID="CompareValidator1" runat="server"
-                                ControlToCompare="Password" ControlToValidate="ConfirmPassword" ErrorMessage="Password mismatch"> </asp:CompareValidator>
-                        </div>
+                        
                     </div>
 
                     <%--  ****************************************************************--%>
