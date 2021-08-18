@@ -51,6 +51,12 @@ namespace BookStoreWebForm.BookStoreApp
                 RepeatInformation.DataBind();
                 con.Close();
 
+                con.Open();
+                var books1 = com.ExecuteReader();
+                Repeater1.DataSource = books1;
+                Repeater1.DataBind();
+                con.Close();
+
 
             }
         }
@@ -120,5 +126,30 @@ namespace BookStoreWebForm.BookStoreApp
             plus_minus.Text = value.ToString();
         }
 
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            FirstName.Text = "Himanshu Nete";
+            PhoneNumber.Text = "8805956103";
+            PinCode.Text = "440024";
+            Locality.Text = "Ladikar Layout";
+            Address.Text = "27, Ladikar Layout, Manewada Road, Nagpur";
+            City.Text = "Nagpur";
+            Landmark.Text = "Shiv Mandir";
+            Work.Checked = true;
+
+            Continue.Visible = false;
+            Edit.Visible = true;
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            customer.Visible = true;
+            PlaceOrder.Visible = false;
+        }
     }
 }

@@ -51,6 +51,24 @@ namespace BookStoreWebForm.BookStoreApp
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
+        /// Edit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Edit;
+
+        /// <summary>
+        /// customer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl customer;
+
+        /// <summary>
         /// FirstName control.
         /// </summary>
         /// <remarks>
@@ -123,13 +141,13 @@ namespace BookStoreWebForm.BookStoreApp
         protected global::System.Web.UI.WebControls.Label Type;
 
         /// <summary>
-        /// RadioButton1 control.
+        /// Home control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton1;
+        protected global::System.Web.UI.WebControls.RadioButton Home;
 
         /// <summary>
         /// Label4 control.
@@ -141,13 +159,13 @@ namespace BookStoreWebForm.BookStoreApp
         protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
-        /// RadioButton2 control.
+        /// Work control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton2;
+        protected global::System.Web.UI.WebControls.RadioButton Work;
 
         /// <summary>
         /// Label5 control.
@@ -159,13 +177,13 @@ namespace BookStoreWebForm.BookStoreApp
         protected global::System.Web.UI.WebControls.Label Label5;
 
         /// <summary>
-        /// RadioButton3 control.
+        /// Other control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton3;
+        protected global::System.Web.UI.WebControls.RadioButton Other;
 
         /// <summary>
         /// Label6 control.
@@ -177,31 +195,13 @@ namespace BookStoreWebForm.BookStoreApp
         protected global::System.Web.UI.WebControls.Label Label6;
 
         /// <summary>
-        /// CreateButton control.
+        /// Continue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CreateButton;
-
-        /// <summary>
-        /// Login control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Login;
-
-        /// <summary>
-        /// Button1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button Continue;
 
         /// <summary>
         /// Label3 control.
@@ -211,6 +211,15 @@ namespace BookStoreWebForm.BookStoreApp
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label3;
+
+        /// <summary>
+        /// Repeater1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater Repeater1;
 
         /// <summary>
         /// Button2 control.

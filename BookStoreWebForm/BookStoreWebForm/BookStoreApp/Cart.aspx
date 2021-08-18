@@ -19,7 +19,7 @@
                 <div class="card" style="width: 42rem;display: flex; margin-bottom: 21px;">
                     <div class="card-body">
 
-                        <asp:Label ID="Label1" runat="server" Text="My Cart"></asp:Label>
+                        <asp:Label ID="Label1" runat="server" style="margin-left:21px" Text="My Cart"></asp:Label>
 
                          <asp:Repeater ID="RepeatInformation"     runat="server" OnItemCommand="RepeatInformation_ItemCommand">  
            <ItemTemplate> 
@@ -97,7 +97,7 @@
                         </div>
 
                         <div style="    margin-bottom: 19px;">
-                             <asp:Button ID="PlaceOrder" runat="server" Text="PLACE ORDER" CommandName="addedToCart"   style="position: relative; left: 487px; width: 154px;"   CssClass="btn btn-primary "  />
+                             <asp:Button ID="PlaceOrder" runat="server" Text="PLACE ORDER"  Visible="true"  style="position: relative; left: 487px; width: 154px;"   CssClass="btn btn-primary " OnClick="Button3_Click" />
                         </div>
 
                         
@@ -111,10 +111,13 @@
                 <div class="card" style="width: 42rem;display: flex; margin-bottom: 21px;">
                     <div class="card-body">
 
+                        <div style="display:flex;    justify-content: space-between;   margin-left: 21px;">
                         <asp:Label ID="Label2" runat="server" Text="Customer Details"></asp:Label>
+                         <asp:Button ID="Edit" runat="server" Text="Edit" Visible="false"  CssClass="btn" />
+                         </div>
 
 
-                        <div class="card">
+                        <div class="card" id="customer"  style="border:white" visible="false" runat="server">
                     <div class="card-body">
 
                         <%--  *************************--%>
@@ -122,7 +125,7 @@
 
                             <div class="col-md-5 col-sm-7">
                                 <div class="from-group">
-                                    <asp:TextBox ID="FirstName" placeholder="Name" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:TextBox ID="FirstName" placeholder="Name" Text="" runat="server" CssClass="form-control"></asp:TextBox>
                                  
                                 </div>
                             </div>
@@ -158,7 +161,7 @@
 
                             <div class="col-md-1 col-sm-7">
                                 <div class="from-group">
-                                    <asp:TextBox ID="Address" placeholder="Address" style="height: 83px; width: 512px;" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:TextBox ID="Address" placeholder="Address" style="height: 83px; width: 515px;" runat="server" CssClass="form-control"></asp:TextBox>
                                  
                                 </div>
                             </div>
@@ -197,11 +200,11 @@
                         
 
                         <div style="display:flex; display: flex;
-    margin-top: 10px;">
+    margin-top: 10px; margin-left :3px">
 
                             <div class="col-md-5 col-sm-7">
                                 <div class="from-group">
-                                    <asp:RadioButton ID="RadioButton1" runat="server" />
+                                    <asp:RadioButton ID="Home" runat="server" />
                                  
                                 </div>
                             </div>
@@ -213,23 +216,23 @@
                             </div>
                             <div class="col-md-5 col-sm-7" style="margin-left: 10px;">
                                 <div class="from-group">
-                                 <asp:RadioButton ID="RadioButton2"  style =" position: relative; right: 200px;" runat="server" />
+                                 <asp:RadioButton ID="Work"  style =" position: relative; right: 333px;" runat="server" />
                                 </div>
                             </div>
                             <div class="col-md-5 col-sm-7">
                                 <div class="from-group">
-                                    <asp:Label ID="Label5" runat="server" Text="Work" style =" position: relative; right: 529px;" ></asp:Label>
+                                    <asp:Label ID="Label5" runat="server" Text="Work" style =" position: relative; right: 555px;" ></asp:Label>
                                  
                                 </div>
                             </div>
                             <div class="col-md-5 col-sm-7" style="margin-left: 10px;">
                                 <div class="from-group">
-                                 <asp:RadioButton ID="RadioButton3" style="position: relative; right: 432px" runat="server" />
+                                 <asp:RadioButton ID="Other" style="position: relative; right: 684px" runat="server" />
                                 </div>
                             </div>
                             <div class="col-md-5 col-sm-7">
                                 <div class="from-group">
-                                     <asp:Label ID="Label6" runat="server" style="position: relative; right: 877px"  Text="Other"></asp:Label>
+                                     <asp:Label ID="Label6" runat="server" style="position: relative; right: 908px"  Text="Other"></asp:Label>
                                  
                                 </div>
                             </div>
@@ -242,15 +245,7 @@
 
                     <%--  ****************************************************************--%>
 
-                    <div class="row">
-                        <div class="col-md-7 mx-auto">
-                            <asp:Button ID="CreateButton" runat="server" Text="Create Account" CssClass="btn btn-outline-danger"  />
-                        </div>
-
-                        <div class="col-md-2 mx-auto">
-                            <asp:LinkButton ID="Login" CausesValidation="false" runat="server" >Login</asp:LinkButton>
-                        </div>
-                    </div>
+                    
                     <br />
                 </div>
 
@@ -261,7 +256,7 @@
                         </div>
 
                         <div style="    margin-bottom: 19px;">
-                             <asp:Button ID="Button1" runat="server" Text="CONTINUE" CommandName="addedToCart"   style="position: relative; left: 487px; width: 154px;"   CssClass="btn btn-primary "  />
+                             <asp:Button ID="Continue" runat="server" Text="CONTINUE" CommandName="addedToCart"  Visible="true" style="position: relative; left: 487px; width: 154px;"   CssClass="btn btn-primary " OnClick="Button1_Click"  />
                         </div>
 
                         
@@ -272,19 +267,47 @@
                         
                     </div>
 
+                
+                
+                
                 <div class="card" style="width: 42rem;display: flex; margin-bottom: 21px;">
                     <div class="card-body">
 
-                        <asp:Label ID="Label3" runat="server" Text="Order Summary"></asp:Label>
+                        <asp:Label ID="Label3" runat="server" style="margin-left:21px" Text="Order Summary"></asp:Label>
 
-                         
+                         <asp:Repeater ID="Repeater1"     runat="server" >  
+           <ItemTemplate> 
+
+               
+
+                          <div class="card cardFlex1 " style="display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 36px; border: 0px solid rgba(0,0,0,.125);"  >
+                    <div class="backgroundColor1">
+                     <asp:Image ID="Image2" ImageUrl="~/assets/220px-The_Overstory_(Powers_novel).png" CssClass="BookImage1" style="width: 109px;" runat="server" />
+                        </div>
+                     <asp:Label ID="BookId1" runat="server" Text='<%#DataBinder.Eval(Container,"DataItem.BookId")%>' Visible = "false" />
+                               <asp:Label ID="CartId1" runat="server" Text='<%#DataBinder.Eval(Container,"DataItem.CartId")%>' Visible = "false" />
+  <div class="card-body ">
+    <h5 class="card-title" ><%#DataBinder.Eval(Container,"DataItem.Name")%></h5>
+    <p class="card-author" ><%#DataBinder.Eval(Container,"DataItem.AuthorName")%></p>
+    <p class="card-price" >Rs. <%#DataBinder.Eval(Container,"DataItem.Price")%></p>
+  </div>  
+                    
+                    </div>
+               
+
+
+                 </ItemTemplate> 
+         </asp:Repeater>
 
 
                         
                         </div>
 
                         <div style="    margin-bottom: 19px;">
-                             <asp:Button ID="Button2" runat="server" Text="CHECKOUT" CommandName="addedToCart"   style="position: relative; left: 487px; width: 154px;"   CssClass="btn btn-primary "  />
+                             <asp:Button ID="Button2" runat="server" Text="CHECKOUT"    style="position: relative; left: 487px; width: 154px;"   CssClass="btn btn-primary " OnClick="Button2_Click"  />
                         </div>
 
                         
