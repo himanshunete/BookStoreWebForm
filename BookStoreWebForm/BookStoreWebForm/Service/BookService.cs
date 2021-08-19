@@ -70,15 +70,16 @@ namespace BookStoreWebForm.Service
             return result;
         }
 
-        public void BookQuantityPlus(int value, int BookId)
+        public void BookQuantityPlus(int value, int BookId, int id)
         {
             SqlCommand com = new SqlCommand("spBookQuantityPlus", con);
             com.CommandType = System.Data.CommandType.StoredProcedure;
 
             com.Parameters.AddWithValue("@value", value);
             com.Parameters.AddWithValue("@BookId", BookId);
+            com.Parameters.AddWithValue("@id", id);
 
-           
+
             con.Open();
             com.ExecuteNonQuery();
            
@@ -86,13 +87,14 @@ namespace BookStoreWebForm.Service
 
         }
 
-        public void BookQuantityMinus(int value, int BookId)
+        public void BookQuantityMinus(int value, int BookId, int id)
         {
             SqlCommand com = new SqlCommand("spBookQuantityMinus", con);
             com.CommandType = System.Data.CommandType.StoredProcedure;
 
             com.Parameters.AddWithValue("@value", value);
             com.Parameters.AddWithValue("@BookId", BookId);
+            com.Parameters.AddWithValue("@id", id);
 
             con.Open();
             com.ExecuteNonQuery();
@@ -108,6 +110,26 @@ namespace BookStoreWebForm.Service
             com.CommandType = System.Data.CommandType.StoredProcedure;
 
             com.Parameters.AddWithValue("@CartId", CartId);
+            var ReturnParameter = com.Parameters.Add("@Result", SqlDbType.Int);
+            ReturnParameter.Direction = ParameterDirection.ReturnValue;
+
+            con.Open();
+            com.ExecuteNonQuery();
+            int result = (int)ReturnParameter.Value;
+            con.Close();
+
+            return result;
+
+
+        }
+
+        public int Order(int CartId, int BookId)
+        {
+            SqlCommand com = new SqlCommand("spOrderSummary", con);
+            com.CommandType = System.Data.CommandType.StoredProcedure;
+
+            com.Parameters.AddWithValue("@CartId", CartId);
+            com.Parameters.AddWithValue("@BookId", BookId);
             var ReturnParameter = com.Parameters.Add("@Result", SqlDbType.Int);
             ReturnParameter.Direction = ParameterDirection.ReturnValue;
 

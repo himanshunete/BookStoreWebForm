@@ -63,12 +63,15 @@ namespace BookStoreWebForm.BookStoreApp
 
         protected void RepeatInformation_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            TextBox plus_minus = e.Item.FindControl("TextBox1") as TextBox;
+            TextBox plus_minus = e.Item.FindControl("Count") as TextBox;
             Button minus = e.Item.FindControl("Minus") as Button;
             Button plus = e.Item.FindControl("Plus") as Button;
             Button removeBookFromCart = e.Item.FindControl("Remove") as Button;
             int BookId1 = int.Parse((e.Item.FindControl("BookId") as Label).Text);
             int CartId = int.Parse((e.Item.FindControl("CartId") as Label).Text);
+            int id = (int)Session["CustomerId"];
+            
+            
 
             if (e.CommandName == "removeBookFromCart")
             {
@@ -104,7 +107,19 @@ namespace BookStoreWebForm.BookStoreApp
                     value = Convert.ToInt32(plus_minus.Text);
                 }
                 value--;
-                bookService.BookQuantityMinus(value, BookId1);
+
+                if (value >=0 )
+                {
+                    bookService.BookQuantityMinus(value, BookId1, id);
+                    plus_minus.Text = value.ToString();
+                    plus_minus.Enabled = true;
+                }
+                else
+                {
+                    plus_minus.Enabled = false;
+                }
+
+              
             }
 
             if (e.CommandName == "plus")
@@ -120,10 +135,22 @@ namespace BookStoreWebForm.BookStoreApp
                     value = Convert.ToInt32(plus_minus.Text);
                 }
                 value++;
-                bookService.BookQuantityPlus(value, BookId1);
-            }
 
-            plus_minus.Text = value.ToString();
+                if (value <= int.Parse(plus_minus.Text))
+                {
+                    bookService.BookQuantityPlus(value, BookId1, id);
+                    plus_minus.Text = value.ToString();
+                    plus_minus.Enabled = true;
+
+                }
+                else
+                {
+                    plus_minus.Enabled = false;
+                }
+
+                
+            }
+            
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -143,7 +170,15 @@ namespace BookStoreWebForm.BookStoreApp
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-
+            
+            for (int i = 0; i < Repeater1.Items.Count; i++)
+            {
+                int BookId1 = int.Parse((Repeater1.Items[i].FindControl("BookId1") as Label).Text);
+                int CartId1 = int.Parse((Repeater1.Items[i].FindControl("CartId1") as Label).Text);
+                int Count = int.Parse((Repeater1.Items[i].FindControl("Count") as Label).Text);
+                bookService.Order(CartId1, BookId1);
+                
+            }
         }
 
         protected void Button3_Click(object sender, EventArgs e)

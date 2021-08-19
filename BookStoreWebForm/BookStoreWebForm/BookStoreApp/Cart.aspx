@@ -69,7 +69,7 @@
                         
                         
                                                
-                        <asp:TextBox ID="TextBox1" style="width:40px; text-align:center" CommandName="plus_minus"  Text="1" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="Count" style="width:40px; text-align:center" CommandName="plus_minus"  Text='<%#DataBinder.Eval(Container,"DataItem.Count")%>' Enabled='true' runat ="server"></asp:TextBox>
                         <asp:Button ID="Plus" runat="server" style="border-radius: 50%;
     /* background-color: #4F81BD; */
     color: black;
@@ -289,6 +289,7 @@
                         </div>
                      <asp:Label ID="BookId1" runat="server" Text='<%#DataBinder.Eval(Container,"DataItem.BookId")%>' Visible = "false" />
                                <asp:Label ID="CartId1" runat="server" Text='<%#DataBinder.Eval(Container,"DataItem.CartId")%>' Visible = "false" />
+                               <asp:Label ID="Count" runat="server" Text='<%#DataBinder.Eval(Container,"DataItem.Count")%>' Visible = "false" />
   <div class="card-body ">
     <h5 class="card-title" ><%#DataBinder.Eval(Container,"DataItem.Name")%></h5>
     <p class="card-author" ><%#DataBinder.Eval(Container,"DataItem.AuthorName")%></p>
