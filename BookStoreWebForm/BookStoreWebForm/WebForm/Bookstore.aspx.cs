@@ -1,5 +1,6 @@
 ﻿using BookStoreWebForm.Model.ResquestModel;
 using BookStoreWebForm.Service;
+using BusinessLayer.Interface;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -10,15 +11,20 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace BookStoreWebForm.BookStoreApp
+namespace BookStoreWebForm.WebForm
 {
     public partial class Bookstore : System.Web.UI.Page
     {
         //create new sqlconnection and connection to database by using connection string from web.config file  
         public static readonly string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
         SqlConnection con = new SqlConnection(strcon);
-        BookService bookService = new BookService();
+        IBookStoreBL bookStoreBL;
         Bag bag = new Bag();
+
+        public Bookstore(IBookStoreBL bookStoreBL)
+        {
+            this.bookStoreBL = bookStoreBL;
+        }
 
         public enum MessageType { Success, Error, Info, Warning };
 
@@ -27,13 +33,10 @@ namespace BookStoreWebForm.BookStoreApp
             ScriptManager.RegisterStartupScript(this, this.GetType(), System.Guid.NewGuid().ToString(), "ShowMessage('" + Message + "','" + type + "');", true);
         }
 
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                //var books =  bookService.DisplayBook();
-
                 SqlCommand com = new SqlCommand("spDisplayBook", con);
                 com.CommandType = System.Data.CommandType.StoredProcedure;
 
@@ -46,46 +49,37 @@ namespace BookStoreWebForm.BookStoreApp
                 RepeatInformation.DataBind();
                 con.Close();
 
-                var count = bookService.DisplayBookCount();
+                var count = bookStoreBL.DisplayBookCount();
                 BookCount.Text = "(" + count.ToString() + " items"+ ")";
-
-
             }
-
-
         }
 
         protected void RepeatInformation_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            Button addToCart1 = e.Item.FindControl("AddToCart") as Button;
-            Button wishlist1 = e.Item.FindControl("WishList") as Button;
+            Button addToCart = e.Item.FindControl("AddToCart") as Button;
+            Button wishlist = e.Item.FindControl("WishList") as Button;
             Button wishlist2 = e.Item.FindControl("WishList1") as Button;
-            Button wishlisted1 = e.Item.FindControl("AddedToWishList") as Button;
-            Button addedToCart1 = e.Item.FindControl("AddedToCart") as Button;
-            int BookId1 = int.Parse((e.Item.FindControl("BookId") as Label).Text);
-            bool stock = (e.Item.FindControl("Stock") as Label).Visible;
+            Button wishlisted = e.Item.FindControl("AddedToWishList") as Button;
+            Button addedToCart = e.Item.FindControl("AddedToCart") as Button;
+            int BookId = int.Parse((e.Item.FindControl("BookId") as Label).Text);
+            Session["BookId"] = BookId; 
+            int CustomerId = (int)Session["CustomerId"];
 
-            Session["BookId"] = BookId1; 
-          
-            if (Session["CustomerId"] == null){
-
+            if (Session["CustomerId"] == null)
+            {
                 ShowMessage("First Login, and then proceed to buy books", MessageType.Success);
             }
 
             else
             {
-                int CustomerId = (int)Session["CustomerId"];
                 if (e.CommandName == "addToCart")
                 {
-                    Button addToCart = e.Item.FindControl("AddToCart") as Button;
-                    Button wishlist = e.Item.FindControl("WishList") as Button;
-                    Button wishlisted = e.Item.FindControl("AddedToWishList") as Button;
-                    Button addedToCart = e.Item.FindControl("AddedToCart") as Button;
-                    int BookId = int.Parse((e.Item.FindControl("BookId") as Label).Text);
-
+                    int count = 0;
+                    count = count + 1;
+                    Session["CartCount"] = count; 
                     bag.BookId = BookId;
                     bag.Id = CustomerId;
-                    var result = bookService.AddToCart(bag);
+                    var result = bookStoreBL.AddToCart(bag);
 
                     if (result != null && result.Equals(1))
                     {
@@ -104,15 +98,9 @@ namespace BookStoreWebForm.BookStoreApp
 
                 if (e.CommandName == "wishList")
                 {
-                    Button addToCart = e.Item.FindControl("AddToCart") as Button;
-                    Button wishlist = e.Item.FindControl("WishList") as Button;
-                    Button wishlisted = e.Item.FindControl("AddedToWishList") as Button;
-                    Button addedToCart = e.Item.FindControl("AddedToCart") as Button;
-                    int BookId = int.Parse((e.Item.FindControl("BookId") as Label).Text);
-
                     bag.BookId = BookId;
                     bag.Id = CustomerId;
-                    var result = bookService.AddToWishList(bag);
+                    var result = bookStoreBL.AddToWishList(bag);
 
                     if (result != null && result.Equals(1))
                     {
@@ -122,17 +110,7 @@ namespace BookStoreWebForm.BookStoreApp
                         wishlisted.Enabled = true;
                         ShowMessage("Book is added to wishlist", MessageType.Success);
                     }
-
                 }
-            }
-
-            if (stock == false)
-            {
-                wishlist2.Visible = true;
-                wishlist2.Enabled = true;
-                wishlist1.Visible = false;
-                addToCart1.Visible = false;
-
             }
         }
     }

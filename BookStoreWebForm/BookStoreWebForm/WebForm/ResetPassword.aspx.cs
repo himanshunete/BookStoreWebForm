@@ -1,5 +1,6 @@
 ﻿using BookStoreWebForm.Model.ResquestModel;
 using BookStoreWebForm.Service;
+using BusinessLayer.Interface;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -14,8 +15,13 @@ namespace BookStoreWebForm.WebForm
 {
     public partial class ResetPassword : System.Web.UI.Page
     {
-        UserAccount reset = new UserAccount();
+        ICustomerBL customerBL;
         User user = new User();
+
+        public ResetPassword(ICustomerBL customerBL)
+        {
+            this.customerBL = customerBL;
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -33,12 +39,13 @@ namespace BookStoreWebForm.WebForm
         {
             user.EmailAddress = (string)Session["EmailAddress"];
             user.Password = NewPassword.Text;
-            var result = reset.Reset(user);
+            var result = customerBL.Reset(user);
 
             if (result != null && result.Equals(1))
             {
                 ShowMessage("Password reset is successful, Go to Login", MessageType.Success);
             }
+
             else
             {
                 ShowMessage("Password reset is not successful, Please reset again", MessageType.Error);

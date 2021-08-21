@@ -107,6 +107,22 @@
   
 }
 
+
+.badge {
+    position: relative;
+    top: -13px;
+    right: 11px;
+    padding: 2px 5px;
+    border-radius: 50%;
+    background-color: white;
+    color: brown;
+}  
+
+.notification {
+    display:flex;
+}
+
+
 .wishlistimage {
     width: 21px;
     height: 21px;

@@ -11,22 +11,26 @@ namespace BookStoreWebForm
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //if(Session["CartCount"].ToString() == "0") {
+            //    notification.Text = Session["CartCount"].ToString();
+            //}
+            //else if (notification.Text = Session["CartCount"].ToString())
+            
         }
 
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
-            Response.Redirect("https://localhost:44313/WebForm/Login.aspx");
+            Response.Redirect("/BookStore/Login");
         }
 
         protected void LinkButton2_Click(object sender, EventArgs e)
         {
-            Response.Redirect("https://localhost:44313/WebForm/Registration.aspx");
+            Response.Redirect("/BookStore/Registration");
         }
 
         protected void LinkButton3_Click(object sender, EventArgs e)
         {
-            Response.Redirect("https://localhost:44313/BookStoreApp/Cart.aspx");
+            Response.Redirect("/BookStore/Cart");
         }
     }
 }

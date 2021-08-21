@@ -12,6 +12,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using BookStoreWebForm.Model.ResquestModel;
 using BookStoreWebForm.Service;
+using BusinessLayer.Interface;
 using Experimental.System.Messaging;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
@@ -20,8 +21,13 @@ namespace BookStoreWebForm.WebForm
 {
     public partial class Registration : System.Web.UI.Page
     {
-        UserAccount registration = new UserAccount();
+        ICustomerBL customerBL;
         User user = new User();
+
+        public Registration(ICustomerBL customerBL)
+        { 
+            this.customerBL = customerBL;
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -41,23 +47,21 @@ namespace BookStoreWebForm.WebForm
             user.LastName = LastName.Text;
             user.EmailAddress = EmailAddress.Text;
             user.Password = Password.Text;
-            var result = registration.Registration(user);
+            var result = customerBL.Registration(user);
 
             if (result != null && result.Equals(1))
             {
                 ShowMessage("Registration is  successful", MessageType.Success);
-
             }
             else
             {
                 ShowMessage("Email already exist", MessageType.Warning);
-               
             }
         }
 
         protected void Login_Click(object sender, EventArgs e)
         {
-            Response.Redirect("https://localhost:44313/WebForm/Login.aspx");
+            Response.Redirect("/BookStore/Login");
         }
     }
 }

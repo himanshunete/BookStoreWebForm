@@ -1,5 +1,6 @@
 ﻿using BookStoreWebForm.Model.ResquestModel;
 using BookStoreWebForm.Service;
+using BusinessLayer.Interface;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -14,8 +15,15 @@ namespace BookStoreWebForm.WebForm
 {
     public partial class Login : System.Web.UI.Page
     {
-        UserAccount login = new UserAccount();
+        ICustomerBL customerBL;
         User user = new User();
+        Encryption encryption = new Encryption();
+        public int encryptId;
+
+        public Login(ICustomerBL customerBL)
+        {
+            this.customerBL = customerBL;
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -33,9 +41,8 @@ namespace BookStoreWebForm.WebForm
         {
             user.EmailAddress = EmailAddress.Text;
             user.Password = Password.Text;
-            var result = login.Login(user);
+            var result = customerBL.Login(user);
            
-
             if (result != null && result.Equals(1))
             {
                 ShowMessage("Account doesnt exist", MessageType.Error);
@@ -46,21 +53,24 @@ namespace BookStoreWebForm.WebForm
             }
             else
             {
-                var record = login.RetrieveRecord(user);
+                var record = customerBL.RetrieveRecord(user);
                 Session["CustomerId"] = record;
+                int id = (int)Session["CustomerId"];
+                string Id = id.ToString();
+                string encrypt = encryption.EncodePasswordToBase64(Id);
+                Session["EncryptCustomerId"] = encrypt;
                 ShowMessage("Login is successful", MessageType.Success);
-                Response.Redirect("https://localhost:44313/BookStoreApp/Bookstore.aspx");
+                Response.Redirect("/BookStore/Home");
             }
         }
 
         protected void CreateButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect("https://localhost:44313/WebForm/Registration.aspx");
+            Response.Redirect("/BookStore/Registration");
         }
-
         protected void ForgetPassword_Click(object sender, EventArgs e)
         {
-            Response.Redirect("https://localhost:44313/WebForm/Forget.aspx");
+            Response.Redirect("/BookStore/Forget");
         }
     }
 }

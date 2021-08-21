@@ -16,12 +16,12 @@ namespace BookStoreWebForm.BookStoreMaster
 
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
-            Response.Redirect("https://localhost:44313/WebForm/Login.aspx");
+            Response.Redirect("/BookStore/Login");
         }
 
         protected void LinkButton2_Click(object sender, EventArgs e)
         {
-            Response.Redirect("https://localhost:44313/WebForm/Registration.aspx");
+            Response.Redirect("/BookStore/Registration");
         }
     }
 }

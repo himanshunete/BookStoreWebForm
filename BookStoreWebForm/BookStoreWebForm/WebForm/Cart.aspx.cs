@@ -1,5 +1,6 @@
 ﻿using BookStoreWebForm.Model.ResquestModel;
 using BookStoreWebForm.Service;
+using BusinessLayer.Interface;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -10,16 +11,21 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace BookStoreWebForm.BookStoreApp
+namespace BookStoreWebForm.WebForm
 {
     public partial class Cart : System.Web.UI.Page
     {
         //create new sqlconnection and connection to database by using connection string from web.config file  
         public static readonly string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
         SqlConnection con = new SqlConnection(strcon);
-        BookService bookService = new BookService();
+        IBookStoreBL bookStoreBL;
         Bag bag = new Bag();
         public int value = 0;
+
+        public Cart(IBookStoreBL bookStoreBL)
+        {
+            this.bookStoreBL = bookStoreBL;
+        }
 
         public enum MessageType { Success, Error, Info, Warning };
 
@@ -28,36 +34,35 @@ namespace BookStoreWebForm.BookStoreApp
             ScriptManager.RegisterStartupScript(this, this.GetType(), System.Guid.NewGuid().ToString(), "ShowMessage('" + Message + "','" + type + "');", true);
         }
 
-
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            int CustomerId = (int)Session["CustomerId"];
             if (!IsPostBack)
             {
-                //var books =  bookService.DisplayBook();
+                if (Session["CustomerId"] == null)
+                {
+                    ShowMessage("First Login, and then proceed ", MessageType.Success);
+                }
+                else
+                {
+                    int CustomerId = (int)Session["CustomerId"];
+                    SqlCommand com = new SqlCommand("spDisplayBookInACart", con);
+                    com.CommandType = System.Data.CommandType.StoredProcedure;
+                    com.Parameters.AddWithValue("@id", CustomerId);
+                    var ReturnParameter = com.Parameters.Add("@Result", SqlDbType.Int);
+                    ReturnParameter.Direction = ParameterDirection.ReturnValue;
 
-                SqlCommand com = new SqlCommand("spDisplayBookInACart", con);
-                com.CommandType = System.Data.CommandType.StoredProcedure;
+                    con.Open();
+                    var books = com.ExecuteReader();
+                    RepeatInformation.DataSource = books;
+                    RepeatInformation.DataBind();
+                    con.Close();
 
-
-                com.Parameters.AddWithValue("@id", CustomerId);
-                var ReturnParameter = com.Parameters.Add("@Result", SqlDbType.Int);
-                ReturnParameter.Direction = ParameterDirection.ReturnValue;
-
-                con.Open();
-                var books = com.ExecuteReader();
-                RepeatInformation.DataSource = books;
-                RepeatInformation.DataBind();
-                con.Close();
-
-                con.Open();
-                var books1 = com.ExecuteReader();
-                Repeater1.DataSource = books1;
-                Repeater1.DataBind();
-                con.Close();
-
-
+                    con.Open();
+                    var bookOrder = com.ExecuteReader();
+                    Repeater1.DataSource = bookOrder;
+                    Repeater1.DataBind();
+                    con.Close();
+                }
             }
         }
 
@@ -70,56 +75,48 @@ namespace BookStoreWebForm.BookStoreApp
             int BookId1 = int.Parse((e.Item.FindControl("BookId") as Label).Text);
             int CartId = int.Parse((e.Item.FindControl("CartId") as Label).Text);
             int id = (int)Session["CustomerId"];
-            
-            
+            string encrypt = Session["EncryptCustomerId"].ToString();
 
             if (e.CommandName == "removeBookFromCart")
             {
-               int result = bookService.RemoveBookFromCart(CartId);
+               int result = bookStoreBL.RemoveBookFromCart(CartId);
 
                 if (result != null && result.Equals(1))
                 {
                     ShowMessage("Book is removed from cart", MessageType.Success);
-                    Response.Redirect("https://localhost:44313/BookStoreApp/Cart.aspx");
                 }
 
                 if (result != null && result.Equals(2))
                 {
                     ShowMessage("Book doesnt exist in a cart", MessageType.Error);
-                
                 }
-
-
             }
-
 
             if (e.CommandName == "minus")
             {
                 if (plus_minus.Text.Equals("0"))
                 {
-              
                     value = 0;
-
                 }
 
                 else
                 {
                     value = Convert.ToInt32(plus_minus.Text);
                 }
+
                 value--;
 
                 if (value >=0 )
                 {
-                    bookService.BookQuantityMinus(value, BookId1, id);
+                    bookStoreBL.BookQuantityMinus(value, BookId1, id);
                     plus_minus.Text = value.ToString();
                     plus_minus.Enabled = true;
                 }
+
                 else
                 {
                     plus_minus.Enabled = false;
                 }
-
-              
             }
 
             if (e.CommandName == "plus")
@@ -135,22 +132,22 @@ namespace BookStoreWebForm.BookStoreApp
                     value = Convert.ToInt32(plus_minus.Text);
                 }
                 value++;
-
-                if (value <= int.Parse(plus_minus.Text))
+                    int result = bookStoreBL.BookMaximumCount(value, BookId1, id);
+                    if ( result.Equals(1))
+                    {
+                        plus_minus.Enabled = false;
+                    }
+                    if (result.Equals(2))
+                    {
+                    bookStoreBL.BookQuantityPlus(value, BookId1, id);
+                        plus_minus.Text = value.ToString();
+                    }
+                if (result.Equals(3))
                 {
-                    bookService.BookQuantityPlus(value, BookId1, id);
                     plus_minus.Text = value.ToString();
-                    plus_minus.Enabled = true;
-
-                }
-                else
-                {
                     plus_minus.Enabled = false;
                 }
-
-                
             }
-            
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -166,19 +163,19 @@ namespace BookStoreWebForm.BookStoreApp
 
             Continue.Visible = false;
             Edit.Visible = true;
+            Repeater1.Visible = true;
         }
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            
             for (int i = 0; i < Repeater1.Items.Count; i++)
             {
                 int BookId1 = int.Parse((Repeater1.Items[i].FindControl("BookId1") as Label).Text);
                 int CartId1 = int.Parse((Repeater1.Items[i].FindControl("CartId1") as Label).Text);
                 int Count = int.Parse((Repeater1.Items[i].FindControl("Count") as Label).Text);
-                bookService.Order(CartId1, BookId1);
-                
+                bookStoreBL.Order(CartId1, BookId1);
             }
+            Response.Redirect("/BookStore/Order");
         }
 
         protected void Button3_Click(object sender, EventArgs e)

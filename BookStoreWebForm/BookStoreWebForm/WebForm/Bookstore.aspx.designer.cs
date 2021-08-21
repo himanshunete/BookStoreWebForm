@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BookStoreWebForm.BookStore
+namespace BookStoreWebForm.WebForm
 {
 
 
-    public partial class BookStore
+    public partial class Bookstore
     {
 
         /// <summary>

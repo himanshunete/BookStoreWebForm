@@ -13,6 +13,13 @@
     top: -32px;
 }
 
+.wishListButton1 {
+    top: -32px;
+    width: 197px;
+    position: relative;
+    left: -5px;
+}
+
 .AddedToWishList {
     position: relative;
     left: 101px;
@@ -113,7 +120,7 @@
 }
 
 .BookImage {
-    height: 139px;
+    height: 182px;
     width: 145px;
     /* background-color: grey; */
     position: absolute;
@@ -181,18 +188,187 @@
 
 .stock {
     position: relative;
-    bottom: 347px;
-    left: 39px;
+    bottom: -92px;
+    left: 47px;
     font-size: x-large;
     color: white;
-    padding-left: 25px;
-    padding-right: 25px;
-    padding-top: 7px;
+    padding-left: 29px;
+    padding-right: 14px;
+    padding-top: 11px;
     padding-bottom: 6px;
-   
+    width: 210px;   
 }
 
 .other {
     background-color: white;
     color: black;
+}
+
+.BookCount {
+    font-size: 15px;
+    position: relative;
+    top: 14px;
+}
+
+.firstCard {
+    width: 42rem;
+    display: flex;
+    margin-bottom: 21px;
+}
+
+.repeatControlFirstCard {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 36px;
+    border: 0px solid rgba(0,0,0,.125);
+}
+
+.plus_minus {
+    display: flex;
+    justify-content: center;
+    /* position: relative; */
+    /* top: 41px; */
+    margin-left: 67px;
+    margin-top: -23px;
+}
+
+.plus_minus1 {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    right: 91px;
+}
+
+.minus {
+    border-radius: 50%;
+    /* background-color: #4F81BD; */
+    color: black;
+    /* text-align: center; */
+    font-family: arial, helvetica, sans-serif;
+    font-weight: bold;
+    width: 28px;
+    height: -3px;
+    /* position: absolute; */
+    /* top: 6px; */
+    padding-right: -10px;
+}
+
+.plus {
+    border-radius: 50%;
+    /* background-color: #4F81BD; */
+    color: black;
+    /* text-align: center; */
+    font-family: arial, helvetica, sans-serif;
+    font-weight: bold;
+    width: 28px;
+    height: -3px;
+    /* position: absolute; */
+    /* top: 6px; */
+    padding-right: -10px;
+}
+
+.remove {
+    position: relative;
+    right: 58px;
+    font-size: 19px;
+}
+
+.placeOrder {
+    position: relative;
+    left: 487px;
+    width: 154px;
+}
+
+.secondCard {
+    width: 42rem;
+    display: flex;
+    margin-bottom: 21px;
+}
+
+.customer_edit {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 21px;
+}
+
+.pincode_locality {
+    display: flex;
+    display: flex;
+    margin-top: 10px;
+}
+
+.address {
+    display: flex;
+    display: flex;
+    margin-top: 10px;
+}
+
+.Address {
+    height: 83px;
+    width: 515px;
+}
+
+.city_landmark {
+    display: flex;
+    display: flex;
+    margin-top: 10px;
+}
+
+.type {
+    display: flex;
+    display: flex;
+    margin-top: 14px;
+}
+
+.radio {
+    display: flex;
+    display: flex;
+    margin-top: 10px;
+    margin-left: 3px
+}
+
+.radioLabel1 {
+    position: relative;
+    right: 215px;
+}
+
+.radio1 {
+    position: relative;
+    right: 333px;
+}
+
+.radioLabel2 {
+    position: relative;
+    right: 555px;
+}
+
+.radio2 {
+    position: relative;
+    right: 684px
+}
+
+.radioLabel3 {
+    position: relative;
+    right: 908px
+}
+
+.thirdCard {
+    width: 42rem;
+    display: flex;
+    margin-bottom: 21px;
+}
+
+.repeatControlOrder {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 36px;
+    border: 0px solid rgba(0,0,0,.125);
+}
+
+.checkout {
+    position: relative;
+    left: 487px;
+    width: 154px;
 }

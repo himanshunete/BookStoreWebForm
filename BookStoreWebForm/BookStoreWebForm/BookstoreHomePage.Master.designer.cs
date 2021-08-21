@@ -87,6 +87,15 @@ namespace BookStoreWebForm
         protected global::System.Web.UI.WebControls.ImageButton CartImage;
 
         /// <summary>
+        /// notification control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label notification;
+
+        /// <summary>
         /// WishList control.
         /// </summary>
         /// <remarks>

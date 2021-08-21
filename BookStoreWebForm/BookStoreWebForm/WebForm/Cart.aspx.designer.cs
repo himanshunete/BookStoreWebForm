@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BookStoreWebForm.BookStoreApp
+namespace BookStoreWebForm.WebForm
 {
 
 

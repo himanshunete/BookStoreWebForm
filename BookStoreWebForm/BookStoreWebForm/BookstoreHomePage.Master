@@ -38,10 +38,12 @@
             <div style="    margin-right: 60px;
     display: flex;
     margin-top: 5px; margin-left: 81px">
-                    <asp:LinkButton ID="Cart" runat="server" OnClick="LinkButton3_Click">
+                <div class="notification">
+                    <asp:LinkButton ID="Cart" style="color:brown" runat="server" OnClick="LinkButton3_Click">
                         <asp:ImageButton ID="CartImage" CssClass="cartimage" ImageUrl="~/assets/snapcart.png"  runat="server" />
+                        <asp:Label ID="notification" CssClass="badge" runat="server" Text="0"></asp:Label> 
                     </asp:LinkButton>
-               
+               </div>
 
                     <asp:LinkButton ID="WishList" runat="server" CssClass="wishlistimage" >
                         <i class="fa fa-heart-o" style="color:white" ></i>

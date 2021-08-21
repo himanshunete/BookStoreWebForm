@@ -1,0 +1,43 @@
+﻿.Image {
+    width:287px;
+    position:relative;
+    left:157px;
+}
+
+.flexLabel {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+}
+
+.line1 {
+    position:relative;
+    left:178px;
+}
+
+
+.line2 {
+    position: relative;
+    left: 133px;
+}
+
+.line3 {
+    position: relative;
+    left: 211px;
+}
+
+.ContinueShopping {
+    width: 186px;
+   
+}
+
+.flexShopping {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+.table {
+    margin-top: 10px;
+}
