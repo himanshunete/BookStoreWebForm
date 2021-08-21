@@ -18,6 +18,7 @@ namespace RepositoryLayer.WebForm
         public static readonly string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
         SqlConnection con = new SqlConnection(strcon);
 
+
         public int Registration(User user)
         {
             SqlCommand com = new SqlCommand("spRegister", con);
